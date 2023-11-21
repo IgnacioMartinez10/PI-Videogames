@@ -9,7 +9,7 @@ const getAllVideogamesController = async () => {
         let response = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`, {
             params: {
                 key: API_KEY,
-                page_size: 150,
+                page_size: 100,
             }
         })
 
