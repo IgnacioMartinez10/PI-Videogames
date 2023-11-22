@@ -2,7 +2,7 @@ const { DataTypes, Sequelize } = require('sequelize');
 
 module.exports = (sequelize) => {
 
-  sequelize.define('genre', {
+  sequelize.define('Genre', {
     id: {
       type: DataTypes.UUID, // Identificador unico universal.
       defaultValue: Sequelize.UUIDV4, //Genera un UUID ALEATORIO
