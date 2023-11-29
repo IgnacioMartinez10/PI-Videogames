@@ -8,7 +8,6 @@ try{
         const gameByName = await getVideogameByNameController(name);
         res.status(200).json(gameByName)
     } else{
-const { getAllVideogamesController } = require("../controllers/getAllVideogamesController")
         const allVideogames = await getAllVideogamesController();
         res.status(200).json(allVideogames);
     }
