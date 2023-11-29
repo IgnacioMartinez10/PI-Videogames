@@ -23,13 +23,13 @@ module.exports = (sequelize) => {
       type: DataTypes.JSON,
       allowNull: false,
     },
-    image: {
+    background_image: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    releaseDate: {
+    released: {
       type: DataTypes.DATEONLY,
-      allowNull: false,
+      allowNull: true,
     },
     rating: {
       type: DataTypes.FLOAT,

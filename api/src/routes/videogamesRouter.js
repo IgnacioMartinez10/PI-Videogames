@@ -3,10 +3,14 @@ const videogamesRouter = Router();
 
 const { getAllVideogamesHandler } = require("../handlers/getAllVideogamesHandler")
 const { getVideogamesByIdHandler } = require("../handlers/getVideogameByIdHandler")
-const { getVideogameByNameHandler } = require ("../handlers/getVideogameByNameHandler")
+const { getVideogameByNameHandler } = require ("../handlers/getVideogameByNameHandler");
+const { createVideogameHandler } = require("../handlers/createVideogameHandler")
 
-videogamesRouter.get("/", getAllVideogamesHandler );
+videogamesRouter.get("/", (req, res) =>{
+    const { name } = req.query;
+    (name) ? getVideogameByNameHandler(req, res) : getAllVideogamesHandler(req, res);
+} );
 videogamesRouter.get("/:id", getVideogamesByIdHandler);
-videogamesRouter.get("")
+videogamesRouter.post("/", createVideogameHandler);
 
 module.exports = videogamesRouter;
