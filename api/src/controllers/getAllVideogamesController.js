@@ -1,20 +1,21 @@
 const { Videogame, Genre } = require("../db")
 const axios = require("axios");
-const { mapDataGames } = require("../helpers/mapDataGames")
+const { mapDataGames, infoFiltered } = require("../helpers/mapDataGames")
 const { API_KEY } = process.env
 
 const getAllVideogamesController = async () => {
+
+    let gamesFromApi = [];
     try {
 
-        let response = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`, {
-            params: {
-                key: API_KEY,
-                page_size: 100,
-            }
-        })
+        let response = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`)
 
         let apiUserData = response.data.results
-        const getApi = mapDataGames(apiUserData)
+        const getApiFiltered = infoFiltered(apiUserData)
+        gamesFromApi.push(getApiFiltered)
+
+        console.log(getApiFiltered);
+
 
         const getDb = await Videogame.findAll({
             include: {
@@ -22,7 +23,7 @@ const getAllVideogamesController = async () => {
             }
         })
 
-        let allVideogames = [...getDb, ...getApi];
+        let allVideogames = [...getDb, ...getApiFiltered];
         return allVideogames
 
     }

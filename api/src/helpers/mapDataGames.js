@@ -1,19 +1,75 @@
-const mapDataGames = (arr) => {
-    return arr.map((game) => {
+const mapDataGames = (games, isDatabase) => {
+    return games.map((game) => {
+      return {
+        id: game.id,
+        name: game.name,
+        description: game.description,
+        genres: game.genres.map((genre) => genre.name),
+        platforms: isDatabase
+          ? game.platforms.map(({ platform }) => platform.name)
+          : game.platforms,
+        background_image: game.background_image,
+        released: game.released,
+        rating: game.rating,
+        created: !isDatabase,
+      };
+    });
+  };
+
+
+  const filterGame = (game) => {
+    if (typeof game.id !== 'number') {
         return {
             id: game.id,
             name: game.name,
             description: game.description,
-            genres: game.genres.map(genre => genre.name),
+            genres: game.Genres.map((genre) => genre.name),
             platforms: game.platforms,
-            image: game.background_image,
+            background_image: game.background_image,
             released: game.released,
-            rating: game.rating,
-            created: false,
+            rating: game.rating
         }
-
-    })
-
+    } else {
+        return {
+            id: game.id,
+            name: game.name,
+            description: game.description_raw,
+            genres: game.genres.map((genre) => genre.name),
+            platforms: game.platforms.map(({ platform }) => platform.name),
+            background_image: game.background_image,
+            released: game.released,
+            rating: game.rating
+        }
+    }
 }
 
-module.exports = { mapDataGames };
+
+const infoFiltered = (arr) => arr.map((game) => {
+  if (typeof game.id === 'number') {
+      return {
+          id: game.id,
+          name: game.name,
+          image: game.background_image,
+          genres: game.genres.map((genre) => genre.name),
+          platforms: game.platforms.map(({ platform }) => platform.name),
+          background_image: game.background_image,
+          released: game.released,
+          rating: game.rating
+      }
+  } else {
+      return {
+          id: game.id,
+          name: game.name,
+          image: game.background_image,
+          genres: game.Genres.map((genre) => genre.name),
+          platforms: game.platforms,
+          background_image: game.background_image,
+          released: game.released,
+          rating: game.rating
+      }
+  }
+});
+  
+  module.exports = { mapDataGames, filterGame, infoFiltered };
+  
+  

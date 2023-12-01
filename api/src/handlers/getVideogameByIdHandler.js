@@ -5,8 +5,10 @@ const getVideogamesByIdHandler = async (req, res) => {
     const { id } = req.params;
     console.log(req.params.id);
 
+    const source = isNaN(id) ? 'bdd' : 'api';
+
     try {
-        const videogame = await getVideogamesByIdController(id)
+        const videogame = await getVideogamesByIdController(id, source)
         res.status(200).json(videogame)
     }
     catch(error) {
