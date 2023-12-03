@@ -1,20 +1,4 @@
-const mapDataGames = (games, isDatabase) => {
-    return games.map((game) => {
-      return {
-        id: game.id,
-        name: game.name,
-        description: game.description,
-        genres: game.genres.map((genre) => genre.name),
-        platforms: isDatabase
-          ? game.platforms.map(({ platform }) => platform.name)
-          : game.platforms,
-        background_image: game.background_image,
-        released: game.released,
-        rating: game.rating,
-        created: !isDatabase,
-      };
-    });
-  };
+
 
 
   const filterGame = (game) => {
@@ -70,6 +54,6 @@ const infoFiltered = (arr) => arr.map((game) => {
   }
 });
   
-  module.exports = { mapDataGames, filterGame, infoFiltered };
+  module.exports = { filterGame, infoFiltered };
   
   
