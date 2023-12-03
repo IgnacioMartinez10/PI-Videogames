@@ -14,9 +14,6 @@ const getAllVideogamesController = async () => {
         const getApiFiltered = infoFiltered(apiUserData)
         gamesFromApi.push(getApiFiltered)
 
-        console.log(getApiFiltered);
-
-
         const getDb = await Videogame.findAll({
             include: {
                 model: Genre
