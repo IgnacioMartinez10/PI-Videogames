@@ -1,6 +1,6 @@
 const { Videogame, Genre } = require("../db");
 const axios = require("axios");
-const { mapDataGames,infoFiltered } = require("../helpers/mapDataGames");
+const { infoFiltered } = require("../helpers/mapDataGames");
 const { Op } = require("sequelize");
 const API_KEY = process.env.API_KEY;
 

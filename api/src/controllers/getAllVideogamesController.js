@@ -1,6 +1,6 @@
 const { Videogame, Genre } = require("../db")
 const axios = require("axios");
-const { mapDataGames, infoFiltered } = require("../helpers/mapDataGames")
+const { infoFiltered } = require("../helpers/mapDataGames")
 const { API_KEY } = process.env
 
 const getAllVideogamesController = async () => {
