@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import style from './Card.module.css';
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import style from "./Card.module.css";
 
 function Card(props) {
   const { id, name, image, genres } = props;
@@ -10,8 +10,8 @@ function Card(props) {
         className={style.cardContainer}
         style={{
           backgroundImage: `url(${image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <p className={style.gameNameContainer}> Juego: {name} </p>

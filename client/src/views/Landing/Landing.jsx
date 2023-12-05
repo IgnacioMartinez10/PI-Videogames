@@ -1,11 +1,11 @@
-import NavBar from "../../components/NavBar/NavBar"
+import NavBar from "../../components/NavBar/NavBar";
 
 const Landing = () => {
-    return(
-        <>
-        <h1>pepeloco landing</h1>
-        </>
-    )
-}
+  return (
+    <>
+      <h1> landing</h1>
+    </>
+  );
+};
 
-export default Landing
+export default Landing;

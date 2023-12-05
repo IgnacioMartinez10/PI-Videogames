@@ -1,27 +1,21 @@
-import CardsContainer from "../../components/CardsContainer/CardsContainer"
-import { useEffect } from "react"
-import { useDispatch } from "react-redux"
-import { getGames } from "../../redux/actions"
+import CardsContainer from "../../components/CardsContainer/CardsContainer";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getGames } from "../../redux/actions";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getGames());
+  }, []);
 
-    const dispatch = useDispatch();
-    useEffect(()=> {
-        dispatch(getGames());
-    },[])
+  return (
+    <>
+      <div>
+        <CardsContainer />
+      </div>
+    </>
+  );
+};
 
-    return (
-        <>
-            <div>
-                <h1>pepeloco home </h1>
-                <CardsContainer />
-            </div>
-        </>
-
-    )
-}
-
-export default Home
-
-
-
+export default Home;
