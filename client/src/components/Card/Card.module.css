@@ -1,0 +1,31 @@
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    height: 250px;
+    max-width: 350px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 25px;
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+.cardContainer:hover {
+    transform: scale(1.05)
+}
+
+.gameNameContainer {
+    font-family: 'Nombre de la fuente', sans-serif;
+    font-weight: bold;
+    color: black;
+    text-shadow: -1px -1px 0 white,
+        1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}

@@ -10,7 +10,7 @@ function App() {
         <NavBar/>
         <Route exact path="/" component={Landing} />
         <Route  path="/home" render={() => <Home/>} />
-        <Route  path="/detail" component={Detail} />
+        <Route  path="/detail/:id" component={Detail} />
         <Route  path="/create" component={Form} />
     
       </div>
