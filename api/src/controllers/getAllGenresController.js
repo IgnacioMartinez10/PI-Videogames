@@ -1,32 +1,22 @@
-const { Videogame, Genre } = require("../db");
-const axios = require("axios");
-const { infoFiltered } = require("../helpers/mapDataGames");
-const { API_KEY } = process.env
+const { Genre } = require("../db");
+const { seederGenres } = require("../helpers/seederGenres");
 
-const getAllDriversController = async () => {
+const getAllGenresController = async () => {
   try {
-    let response = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`)
-    let apiGamesData = response.data;
+    // Verificar si la base de datos está vacía
+    const countGenres = await Genre.count();
 
-    const getApi = infoFiltered(apiGamesData);
+    if (countGenres === 0) {
+      // Si la base de datos está vacía, llamar al seeder para obtener y almacenar los géneros
+      await seederGenres();
+    }
 
-    const getDb = await Videogame.findAll({
-      include: [
-        {
-          model: Genre,
-          attributes: ["name"],
-          through: {
-            attributes: [],
-          },
-        },
-      ],
-    });
-
-    let allGames = [...getDb, ...getApi];
-    return allGames
+    // Obtener todos los géneros de la base de datos
+    const genres = await Genre.findAll();
+    return genres;
   } catch (error) {
-    throw error;
+    throw new Error("Error al obtener los géneros desde el controlador");
   }
 };
 
-module.exports = { getAllDriversController };
+module.exports = { getAllGenresController };
