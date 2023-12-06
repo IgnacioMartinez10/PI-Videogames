@@ -3,14 +3,12 @@ import { Home, Detail, Create, Landing } from "./views/index";
 
 function App() {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/home" render={() => <Home />} />
-        <Route path="/home/:id" component={Detail} />
-        <Route path="/create" component={Create} />
-      </Switch>
-    </div>
+    <Switch>
+      <Route exact path="/" component={Landing} />
+      <Route exact path="/home" render={() => <Home />} />
+      <Route path="/home/:id" component={Detail} />
+      <Route path="/create" component={Create} />
+    </Switch>
   );
 }
 

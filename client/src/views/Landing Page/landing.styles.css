@@ -1,25 +1,55 @@
+.container{
+  display: flex;
+background-image: url('../../../assets/joystick.jpg');
+background-size: cover;
+background-repeat: repeat;
+height: 47vw;
+
+}
+
+
+.containerLanding{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+ 
+  
+
+}
+
+.containerInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 10px solid black;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px); /* Ajusta el valor de desenfoque según tus necesidades */
+}
+
 .botondeinicio {
     margin-bottom: 10px;
     width: 100px; /* Ancho más grande */
     height: 100px; /* Altura más grande */
     border-radius: 50%;
     background-color: transparent;
+    color: black;
   }
 
 
   .landingTitle {
-    font-family: "Homer Simpson UI";
-    font-size: 4em;
-    color: rgb(202, 19, 19); /* Relleno transparente */
-    text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white, 0 0 5px black; /* Borde blanco y negro */
-    transition: text-shadow 0.3s; /* Transición para el efecto de brillo */
+    color: black;
   }
   
-  .landingTitle:hover {
-    text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white, 0 0 10px red; /* Efecto de brillo con sombra rojiza */
-  }
+  
 
   .estiloLinks{
-    font-size: 40px;
-    color: transparent;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
 }

@@ -19,27 +19,15 @@
     height: 50px;
     border: transparent;
     background-color: transparent;
-    color: rgb(59, 28, 28);
+    color: white;
     font-family: "Bigelow Rules";
     font-size: 30px;
-    -webkit-text-stroke: 2px rgb(104, 19, 19);
-    -webkit-text-fill-color: transparent;
-    animation: textShadowAnimation 2s infinite;
+
+
   }
   
-  @keyframes textShadowAnimation {
-    0% {
-      text-shadow: 0 0 10px rgb(255, 70, 70);
-    }
   
-    50% {
-      text-shadow: 0 0 2px rgb(112, 8, 8);
-    }
   
-    100% {
-      text-shadow: 0 0 10px transparent;
-    }
-  }
   
   
   .filterContainer {
@@ -55,22 +43,22 @@
   .selectContainer {
     width: 150px;
     height: 50px;
-    border: 1px solid rgb(153, 35, 35);
-    color: rgb(153, 35, 35);
+    border: 1px solid orange;
+    color:orange;
     font-family: "Bigelow Rules";
-    font-size: 20px;
+    font-size: 15px;
     background-color: transparent;
     text-align: center;
   }
   .selectContainer::placeholder {
-    color: rgb(153, 35, 35);
+    color: orange;
   }
   
   .buttonContainer{
     width: 150px;
     height: 20px;
     background-color: transparent;
-    color: rgb(153, 35, 35);
+    color: orange;
     font-family: "Bigelow Rules";
     font-size: 15px;
     cursor: pointer;

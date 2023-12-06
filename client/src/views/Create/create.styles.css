@@ -1,10 +1,13 @@
+.backHome{
+  color: white;
+  font-size:30px ;
+}
+
 .formWrapper {
   display: flex;
-  border: greenyellow 3px solid;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 20px;
   flex-wrap: wrap;
 }
 
@@ -16,16 +19,14 @@
 }
 
 .inputGroup {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
 }
 
 .formText {
   font-family: "Homer Simpson UI";
-  -webkit-text-stroke: 2px rgb(33, 167, 47);
-  -webkit-text-fill-color: transparent;
-  animation: textShadowAnimation 2s infinite;
-  font-size: larger;
+  color: white;
 
 }
 
@@ -38,32 +39,21 @@ font-family: "Homer Simpson UI";
 
 }
 
-@keyframes textShadowAnimation {
-  0% {
-      text-shadow: 0 0 10px rgb(43, 255, 0);
-  }
 
-  50% {
-      text-shadow: 0 0 2px rgba(49, 248, 31, 0.5);
-  }
-
-  100% {
-      text-shadow: 0 0 10px transparent;
-  }
-}
 
 .contentInput {
   width: 60%;
   height: 30px;
   background-color: transparent;
-  border: greenyellow 3px solid;
+  border: orange 1px solid;
   border-radius: 10px;
-  color: greenyellow;
+  color: orange;
   font-size: larger;
+  cursor: pointer;
 }
 
 span {
-  color: rgb(14, 177, 68);
+  color: orange;
   font-size: 40px;
 }
 
@@ -84,21 +74,7 @@ span {
 margin-bottom: 50px;
 font-size: 50px;
 margin-left: 5px;
-color: rgb(223, 104, 8);
+color: rgb(0, 0, 0);
 font-family: "Bigelow Rules";
--webkit-text-stroke: 2px black;
--webkit-text-fill-color: transparent;
-animation: textShadowAnimation 2s infinite;
-}
 
-@keyframes textShadowAnimation {
-0% {
-  text-shadow: 0 0 10px rgb(223, 104, 8);
-}
-50% {
-  text-shadow: 0 0 2px rgba(209, 25, 25, 0.5);
-}
-100% {
-  text-shadow: 0 0 10px transparent;
-}
 }

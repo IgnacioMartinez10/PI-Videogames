@@ -14,7 +14,7 @@
   
   .paginationContainer button {
     background-color: transparent;
-    border: solid rgb(38, 190, 33) 1px;
+    border: solid orange;
     padding: 10px 15px;
     border-radius: 15px;
     cursor: pointer;
@@ -23,5 +23,10 @@
   }
 
   .pageNumber{
-    background-color: green;
+    background-color: black;
+  }
+
+  .pageNumber a{
+    text-decoration: none;
+    color: black;
   }

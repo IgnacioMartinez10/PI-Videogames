@@ -66,7 +66,7 @@ function Navbar() {
         HOME
       </Link>
       <Link to="/create" className="linksContainer">
-        POST GAME
+        Crear un videojuego
       </Link>
       <div className="filterContainer">
         <select

@@ -3,13 +3,17 @@ import "./landing.styles.css";
 
 function Landing() {
   return (
-    <div>
-      <p className="landingTitle"> Welcome to Metal Games!!!</p>
-      <button className="botondeinicio">
-        <Link className="estiloLinks" to="/home">
-          🔍
-        </Link>
-      </button>
+    <div className="container">
+      <div className="containerLanding">
+        <div className="containerInfo">
+          <span className="landingTitle"> Bienvenidos Al Pi-Videogames</span>
+          <button className="botondeinicio">
+            <Link className="estiloLinks" to="/home">
+              Ingresar
+            </Link>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

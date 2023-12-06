@@ -4,8 +4,6 @@ const { API_KEY } = process.env;
 const { infoFiltered, filterGame } = require("../utils/utilsFunctions");
 const { Op } = require("sequelize");
 
-//Postear un nuevo juego
-
 const createGameDB = async (
   name,
   description,
@@ -38,18 +36,7 @@ const createGameDB = async (
   });
 
   return gamePosted;
-  //for (const genreName of genres) {
-  //    const [genresPosted, created] = await Genre.findOrCreate({
-  //        where: { name: genreName },
-  //        default: { name: genreName}
-  //    });
-  //    if(!created) throw new Error ('Ese genero ya existe')
-  //
-  //    await gamePosted.addGenre(genresPosted);
-  //}
-}; //sequelize me permite usar la funcion .create como si usara el CREATE en SQL
-
-// Obtener el detail de un juego por ID
+};
 
 const getByIdDB = async (id, source) => {
   let game = {};
@@ -70,38 +57,34 @@ const getByIdDB = async (id, source) => {
 };
 
 const getGamesByName = async (name) => {
-  const gamesByNameDB = await Videogame.findAll({
-    where: {
-      name: {
-        [Op.iLike]: `%${name}%`,
+  try {
+    // Buscar juegos en la base de datos local
+    const gamesFromDB = await Videogame.findAll({
+      where: {
+        name: {
+          [Op.iLike]: `%${name}%`,
+        },
       },
-    },
-  });
+      include: [Genre],
+    });
 
-  let gamesFromApi = [];
+    // Obtener juegos de la API
+    const gamesFromApi = await getAllGamesFromApiByName(name);
 
-  for (let i = 1; i < 6; i++) {
-    let allGamesFromApiFullInfo = (
-      await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`)
-    ).data.results;
-    let allGamesFromApiFiltered = infoFiltered(allGamesFromApiFullInfo);
-    gamesFromApi.push(allGamesFromApiFiltered);
+    // Combinar y filtrar juegos duplicados
+    const combinedGames = combineAndFilterGames(gamesFromDB, gamesFromApi);
+
+    // Lanzar error si no se encuentran juegos
+    if (combinedGames.length === 0) {
+      throw new Error(
+        `No se encontraron juegos que contengan ${name} en su nombre`
+      );
+    }
+
+    return combinedGames;
+  } catch (error) {
+    throw new Error(error.message);
   }
-  let allGames = [];
-  gamesFromApi.map((el) => {
-    allGames = allGames.concat(el);
-  });
-
-  const gamesByNameApi = allGames.filter((game) =>
-    game.name.toLowerCase().includes(name.toLowerCase())
-  );
-
-  if (gamesByNameDB.length === 0 && gamesByNameApi.length === 0)
-    throw new Error(
-      `No se encontraron juegos que contengan ${name} en su nombre`
-    );
-
-  return [...gamesByNameDB, ...gamesByNameApi];
 };
 
 const getAllGames = async () => {
@@ -110,18 +93,55 @@ const getAllGames = async () => {
   let gamesFromApi = [];
 
   for (let i = 1; i < 6; i++) {
-    let allGamesFromApiFullInfo = (
+    const allGamesFromApiFullInfo = (
       await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${i}`)
     ).data.results;
-    let allGamesFromApiFiltered = infoFiltered(allGamesFromApiFullInfo);
+    const allGamesFromApiFiltered = infoFiltered(allGamesFromApiFullInfo);
     gamesFromApi.push(allGamesFromApiFiltered);
   }
+
   let allGames = [];
-  gamesFromApi.map((el) => {
+  gamesFromApi.forEach((el) => {
     allGames = allGames.concat(el);
   });
 
   return [...allGamesFromDBFiltered, ...allGames];
+};
+
+const getAllGamesFromApiByName = async (name) => {
+  const gamesFromApi = [];
+
+  for (let i = 1; i < 6; i++) {
+    const allGamesFromApiFullInfo = (
+      await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${i}`)
+    ).data.results;
+    const allGamesFromApiFiltered = infoFiltered(allGamesFromApiFullInfo);
+    gamesFromApi.push(allGamesFromApiFiltered);
+  }
+
+  let allGames = [];
+  gamesFromApi.forEach((el) => {
+    allGames = allGames.concat(el);
+  });
+
+  // Filtrar juegos por nombre
+  const gamesByNameApi = allGames.filter((game) =>
+    game.name.toLowerCase().includes(name.toLowerCase())
+  );
+
+  return gamesByNameApi;
+};
+
+const combineAndFilterGames = (gamesFromDB, gamesFromApi) => {
+  // Filtrar duplicados
+  const uniqueGamesFromApi = gamesFromApi.filter((apiGame) => {
+    return !gamesFromDB.some((dbGame) => dbGame.id === apiGame.id);
+  });
+
+  // Combinar juegos de la base de datos y de la API
+  const combinedGames = [...gamesFromDB, ...uniqueGamesFromApi];
+
+  return combinedGames;
 };
 
 module.exports = {

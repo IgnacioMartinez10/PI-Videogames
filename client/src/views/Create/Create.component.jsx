@@ -89,13 +89,30 @@ function Create() {
       }
 
       // Verificar la entrada del año
-      if (form.released.length >= 7 && form.released.length <= 8) {
-        const year = parseInt(form.released.substring(6));
-        if (isNaN(year)) {
-          updatedErrors.released = "Año inválido";
+      if (form.released.length === 10) {
+        const dateParts = form.released.split("/");
+        const day = parseInt(dateParts[0]);
+        const month = parseInt(dateParts[1]);
+        const year = parseInt(dateParts[2]);
+
+        if (
+          isNaN(day) ||
+          isNaN(month) ||
+          isNaN(year) ||
+          day < 1 ||
+          day > 31 ||
+          month < 1 ||
+          month > 12 ||
+          year < 1900 ||
+          year > 2100
+        ) {
+          updatedErrors.released = "Fecha inválida";
         } else {
           updatedErrors.released = "";
         }
+      } else {
+        updatedErrors.released =
+          "Formato de fecha inválido. Utilice dd/mm/yyyy";
       }
 
       // Verificar el formato completo de la fecha
@@ -176,7 +193,7 @@ function Create() {
 
   return (
     <div className="formWrapper">
-      <Link to="/home" className="estiloLinks">
+      <Link to="/home" className="backHome">
         {" "}
         Back Home
       </Link>
