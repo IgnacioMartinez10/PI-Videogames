@@ -13,8 +13,8 @@ function Card(props) {
           backgroundPosition: "center",
         }}
       >
-        <p className="gameNameContainer"> Game: {name} </p>
-        <p className="gameNameContainer"> Géneros: {genres}</p>
+        <p className="infoContainer"> Game: {name} </p>
+        <p className="infoContainer"> Géneros: {genres}</p>
       </div>
     </Link>
   );

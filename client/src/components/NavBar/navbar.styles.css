@@ -1,27 +1,20 @@
 .searchBarContainer {
-    display: flex;
-    flex-direction: row;
-    border: transparent;
-    border-radius: 15px;
-    outline: none;
-    justify-content: space-around;
-    padding: 10px;
-    width: 1100px;
-    line-height: 30px;
-    margin-bottom: 30px;
-  }
-  
+  display: flex;
+  flex-direction: row;
+  border: transparent;
+  border-radius: 15px;
+  outline: none;
+  justify-content: space-around;
+  padding: 10px;
+  width: 1100px;
+  line-height: 30px;
+  margin-bottom: 30px;
+  backdrop-filter: blur(5px);
+  border: 2px solid black;
+}
   .linksContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 50px;
-    border: transparent;
-    background-color: transparent;
-    color: white;
-    font-family: "Bigelow Rules";
-    font-size: 30px;
+  text-decoration: none;
+  color: black;
 
 
   }
@@ -43,23 +36,38 @@
   .selectContainer {
     width: 150px;
     height: 50px;
-    border: 1px solid orange;
-    color:orange;
+    border: 3px solid black;
+    border-radius: 10px;
+    color:black;
     font-family: "Bigelow Rules";
+    font-weight: bold;
     font-size: 15px;
     background-color: transparent;
     text-align: center;
   }
   .selectContainer::placeholder {
-    color: orange;
+    color: rgb(141, 141, 141);
+    text-shadow: 1px 1px black;
   }
   
-  .buttonContainer{
-    width: 150px;
-    height: 20px;
+  .buttonSearch{
+    height: 30px;
+    margin: 5px;
+    border-radius: 10px;
     background-color: transparent;
-    color: orange;
+    color: rgb(0, 0, 0);
     font-family: "Bigelow Rules";
     font-size: 15px;
     cursor: pointer;
+    font-weight: bold;
+    text-shadow: 1px 1px gray ;
+  }
+  .buttonReset{
+    width: 100%;
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+     margin: 5px;
+     cursor: pointer;
   }

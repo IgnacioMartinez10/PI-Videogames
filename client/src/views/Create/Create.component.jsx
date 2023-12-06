@@ -288,13 +288,13 @@ function Create() {
           ))}
         </div>
         <button
+          className="submitVideogames"
           type="submit"
           disabled={
             !Object.values(form).every((value) => value !== "") || hasErrors()
           }
         >
-          {" "}
-          SUBMIT{" "}
+          Crear
         </button>
       </form>
     </div>

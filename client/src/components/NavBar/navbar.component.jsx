@@ -10,6 +10,7 @@ import {
   gamesOrder,
   gamesOrigin,
   ratingOrder,
+  resetFilters,
 } from "../../redux/actions";
 
 function Navbar() {
@@ -23,6 +24,11 @@ function Navbar() {
   }, [dispatch]);
 
   const [search, setSearch] = useState([]);
+
+  const reseteo = () => {
+    dispatch(resetFilters());
+    console.log(resetFilters);
+  };
 
   const inputSearchHandler = (event) => {
     event.preventDefault();
@@ -47,7 +53,6 @@ function Navbar() {
   const filterOrigin = (e) => {
     const { value } = e.target;
     dispatch(gamesOrigin(value));
-    //window.location.reload();
   };
 
   const orderHandler = (e) => {
@@ -85,8 +90,6 @@ function Navbar() {
         </select>
       </div>
       <div className="filterContainer">
-        <h4> </h4>
-
         <select className="selectContainer" onChange={orderHandler}>
           <optgroup label="Orden">
             <option value="Default">Orden</option>
@@ -115,21 +118,26 @@ function Navbar() {
           onChange={filterOrigin}
         >
           <optgroup label="Origen">
-            <option value="All">All</option>
+            <option value="All">Todos</option>
             <option value="api">API</option>
             <option value="db">DB</option>
           </optgroup>
         </select>
       </div>
+      <div>
+        <button className="buttonReset" onClick={reseteo}>
+          Reset Filtros
+        </button>
+      </div>
       <form onSubmit={searchButtonHandler}>
         <input
           className="selectContainer"
-          placeholder="VideoGame 🔍"
+          placeholder="Busca tu juego"
           type="search"
           value={search}
           onChange={inputSearchHandler}
         />
-        <button className="buttonContainer" type="Submit">
+        <button className="buttonSearch" type="Submit">
           Buscar
         </button>
       </form>

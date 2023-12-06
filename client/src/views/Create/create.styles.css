@@ -1,5 +1,8 @@
+
+
 .backHome{
-  color: white;
+  color: Black;
+  font-weight: bold;
   font-size:30px ;
 }
 
@@ -9,6 +12,7 @@
   align-items: center;
   height: 100vh;
   flex-wrap: wrap;
+  backdrop-filter: blur(5px);
 }
 
 .inputWrapper {
@@ -26,7 +30,8 @@
 
 .formText {
   font-family: "Homer Simpson UI";
-  color: white;
+  color: Black;
+  font-weight: bold;
 
 }
 
@@ -53,8 +58,8 @@ font-family: "Homer Simpson UI";
 }
 
 span {
-  color: orange;
-  font-size: 40px;
+  color: Black;
+  font-weight: bold;
 }
 
 .genreContainer {
@@ -77,4 +82,12 @@ margin-left: 5px;
 color: rgb(0, 0, 0);
 font-family: "Bigelow Rules";
 
+}
+
+.submitVideogames{
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  height: 40px;
+  width: auto;
 }

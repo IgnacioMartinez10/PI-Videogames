@@ -25,8 +25,7 @@ function Detail() {
           }}
         >
           <Link to="/home" className="estiloLink">
-            {" "}
-            Back Home{" "}
+            Volver Al Home
           </Link>
           <div className="infoContainer">
             <h2 className="estiloTexto">Nombre: {game.name}</h2>

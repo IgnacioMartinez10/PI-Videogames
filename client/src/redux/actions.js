@@ -9,6 +9,7 @@ export const FILTER_GENRES = "FILTER_GENRES";
 export const ORDEN_ALFABETICO = "ORDEN_ALFABETICO";
 export const GAMES_ORIGIN = "GAMES_ORIGIN";
 export const GAMES_RATING = "GAMES_RATING";
+export const RESET_GAMES = "RESET_GAMES";
 
 const URL = "http://localhost:3001";
 axios.defaults.baseURL = URL;
@@ -102,3 +103,12 @@ export const ratingOrder = (orden) => {
     payload: orden,
   };
 };
+
+export function resetFilters() {
+  console.log("entro en action");
+  return function (dispatch) {
+    dispatch({
+      type: RESET_GAMES,
+    });
+  };
+}

@@ -4,7 +4,7 @@
     background-color: transparent;
     height: 250px;
     max-width: 350px;
-    border: 1px solid grey;
+    border: 2px solid black;
     border-radius: 5px;
     padding: 25px;
     cursor: pointer;
@@ -22,10 +22,13 @@
     transform: scale(1.05)
 }
 
-.gameNameContainer {
-    font-family: 'Nombre de la fuente', sans-serif;
+.infoContainer {
+    font-family: sans-serif;
     font-weight: bold;
     color: black;
     text-shadow: -1px -1px 0 white,
         1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+    text-decoration: none;
+    list-style: none;
 }
+

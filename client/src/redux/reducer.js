@@ -8,6 +8,7 @@ import {
   GAMES_ORIGIN,
   POST_GAME,
   GAMES_RATING,
+  RESET_GAMES,
 } from "./actions";
 
 let initialState = {
@@ -17,6 +18,7 @@ let initialState = {
   genres: [],
   gameDetail: [],
   filteredGenres: [],
+  gamesReset: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -26,6 +28,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         videogames: action.payload,
         filteredGames: action.payload,
+        gamesReset: action.payload,
       };
 
     case GET_GAME:
@@ -52,7 +55,13 @@ function rootReducer(state = initialState, action) {
         genres: action.payload,
         filteredGenres: action.payload,
       };
-
+    case RESET_GAMES:
+      console.log("entro en el reducer");
+      return {
+        ...state,
+        videogames: [...state.gamesReset],
+        filteredGames: [...state.gamesReset],
+      };
     case FILTER_GENRES:
       let genderGames = [...state.videogames];
 

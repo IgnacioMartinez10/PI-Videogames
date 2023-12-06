@@ -29,22 +29,29 @@ height: 47vw;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(10px); /* Ajusta el valor de desenfoque según tus necesidades */
+  backdrop-filter: blur(10px);
 }
 
 .botondeinicio {
     margin-bottom: 10px;
-    width: 100px; /* Ancho más grande */
-    height: 100px; /* Altura más grande */
+    width: 100px; 
+    height: 100px; 
     border-radius: 50%;
     background-color: transparent;
     color: black;
+    transition: all 1s;
   }
 
-
+  
+  .botondeinicio:hover{
+    transform: scale(1.1, 1.1 ) ;
+  }
+  
+  
   .landingTitle {
     color: black;
   }
+  
   
   
 
