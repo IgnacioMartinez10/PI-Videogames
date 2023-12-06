@@ -15,6 +15,7 @@ const Pagination = ({ gamesPerPage, totalGames, paginated }) => {
               <button key={number} className="pageNumber">
                 <a
                   onClick={(e) => {
+                    console.log(`click en pagina${number}`);
                     e.preventDefault();
                     paginated(number);
                   }}
