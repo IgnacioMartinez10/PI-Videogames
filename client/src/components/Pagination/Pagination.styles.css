@@ -1,0 +1,27 @@
+.paginationContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 20px; 
+    width: 100px;
+}
+  
+  .paginationContainer ul {
+    list-style: none;
+    display: flex;
+    gap: 10px; 
+  }
+  
+  .paginationContainer button {
+    background-color: transparent;
+    border: solid rgb(38, 190, 33) 1px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: transparent;
+    font-weight: bold;
+  }
+
+  .pageNumber{
+    background-color: green;
+  }

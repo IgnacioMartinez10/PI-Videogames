@@ -1,7 +1,6 @@
-import Landing from "./Landing/Landing";
-import Home from "./Home/Home";
-import Detail from "./Detail/Detail";
-import Form from "./Form/Form";
+import Detail from "./Detail/detail.component";
+import Create from "./Create/Create.component";
+import Home from "./Home/home.component";
+import Landing from "./Landing Page/Landing";
 
-
-export { Landing, Home, Detail , Form};
+export { Landing, Home, Detail, Create };

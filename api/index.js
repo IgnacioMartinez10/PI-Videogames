@@ -17,15 +17,21 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
-const { seederGenres } = require("./src/helpers/seederGenres.js")
+const server = require("./src/app");
+const { conn } = require("./src/db");
+const { fillDBwithGenres } = require("../api/src/utils/utilsFunctions");
 
-// Syncing all the models at once.
-conn.sync({ force: true })
-.then(()=> seederGenres())
-.then(() => {
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
-  });
-});
+const PORT = 3001;
+
+conn
+  .sync({ force: true })
+  .then(() => {
+    fillDBwithGenres();
+  }) //ACA VOY A LLAMAR A LA FUNCION QUE TRAE TODOS LOS GENEROS DE LA API Y LOS PONE EN LA BASE DE DATOS
+
+  .then(() => {
+    server.listen(PORT, () => {
+      console.log("Listening on port 3001");
+    });
+  })
+  .catch((error) => console.log("ERROR UP SERVER--->" + error.message));
