@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dhurjati&display=swap');
-*{
-  font-family: 'Dhurjati', sans-serif;
 
-} 
 
 .searchBarContainer {
   display: flex;

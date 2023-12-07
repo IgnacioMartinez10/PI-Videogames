@@ -78,8 +78,13 @@ function Navbar() {
             name="Genres"
             onChange={filterHandler}
           >
-            <optgroup label="Géneros">
-              <option value={filtrosLocales.generos}>Géneros</option>
+            <optgroup className="selectContainer" label="Géneros">
+              <option
+                className="selectContainer"
+                value={filtrosLocales.generos}
+              >
+                Géneros
+              </option>
               {genres?.map((genre) => (
                 <option value={genre} key={genre.id}>
                   {genre}
