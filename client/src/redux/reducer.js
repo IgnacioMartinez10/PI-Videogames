@@ -19,6 +19,12 @@ let initialState = {
   gameDetail: [],
   filteredGenres: [],
   gamesReset: [],
+  filtros: {
+    generos: "AllGenres",
+    alfabetico: "Default",
+    rating: "Default",
+    origen: "All",
+  },
 };
 
 function rootReducer(state = initialState, action) {
@@ -56,11 +62,11 @@ function rootReducer(state = initialState, action) {
         filteredGenres: action.payload,
       };
     case RESET_GAMES:
-      console.log("entro en el reducer");
       return {
         ...state,
         videogames: [...state.gamesReset],
         filteredGames: [...state.gamesReset],
+        filtros: { ...action.payload },
       };
     case FILTER_GENRES:
       let genderGames = [...state.videogames];

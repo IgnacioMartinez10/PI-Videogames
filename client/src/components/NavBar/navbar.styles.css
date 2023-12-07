@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Dhurjati&display=swap');
+*{
+  font-family: 'Dhurjati', sans-serif;
+
+} 
+
 .searchBarContainer {
   display: flex;
   flex-direction: row;
@@ -14,12 +20,16 @@
 }
   .linksContainer {
   text-decoration: none;
-  color: black;
+  color: white;
+  text-shadow: 1px 1px black;
+  font-size: 20px;
 
 
   }
   
-  
+  .backHome{
+    backdrop-filter: blur(5px);
+  }
   
   
   
@@ -70,4 +80,17 @@
     border-radius: 5px;
      margin: 5px;
      cursor: pointer;
+  }
+
+  .ContainNavbar{
+    display: flex;
+    flex-direction: column;
+  }
+  .navbar{
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: orange;
+    color: white;
   }

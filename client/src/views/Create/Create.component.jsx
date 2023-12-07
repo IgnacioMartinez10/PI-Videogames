@@ -192,112 +192,116 @@ function Create() {
   };
 
   return (
-    <div className="formWrapper">
-      <Link to="/home" className="backHome">
-        {" "}
-        Back Home
-      </Link>
-      <form onSubmit={submitHandler}>
-        <div className="inputGroup">
-          <div>
-            <label className="formText"> Nombre: </label>
-            <input
-              className="contentInput"
-              type="text"
-              value={form.name}
-              onChange={changeHandler}
-              name="name"
-            />
-            {errors.name && <span className="formText">{errors.name}</span>}
+    <>
+      <div className="backHome">
+        <Link to="/home" className="backHome">
+          {" "}
+          Volver al Home
+        </Link>
+      </div>
+      <div className="formWrapper">
+        <form className="form" onSubmit={submitHandler}>
+          <div className="inputGroup">
+            <div>
+              <label className="formText"> Nombre: </label>
+              <input
+                className="contentInput"
+                type="text"
+                value={form.name}
+                onChange={changeHandler}
+                name="name"
+              />
+              {errors.name && <span className="formText">{errors.name}</span>}
+            </div>
+            <div>
+              <label className="formText"> Image: </label>
+              <input
+                className="contentInput"
+                type="text"
+                value={form.background_image}
+                onChange={changeHandler}
+                name="background_image"
+              />
+              {errors.background_image && (
+                <span className="formText">{errors.background_image}</span>
+              )}
+            </div>
           </div>
           <div>
-            <label className="formText"> Image: </label>
+            <label className="formText"> Descripción: </label>
             <input
               className="contentInput"
               type="text"
-              value={form.background_image}
+              value={form.description}
               onChange={changeHandler}
-              name="background_image"
+              name="description"
             />
-            {errors.background_image && (
-              <span className="formText">{errors.background_image}</span>
+            {errors.description && (
+              <span className="formText">{errors.description}</span>
             )}
           </div>
-        </div>
-        <div>
-          <label className="formText"> Descripción: </label>
-          <input
-            className="contentInput"
-            type="text"
-            value={form.description}
-            onChange={changeHandler}
-            name="description"
-          />
-          {errors.description && (
-            <span className="formText">{errors.description}</span>
-          )}
-        </div>
-        <div>
-          <label className="formText"> Plataformas: </label>
-          <input
-            className="contentInput"
-            type="text"
-            value={form.platforms}
-            onChange={changeHandler}
-            name="platforms"
-          />
-          {errors.platforms && (
-            <span className="formText">{errors.platforms}</span>
-          )}
-        </div>
-        <div>
-          <label className="formText"> Fecha de lanzamiento: </label>
-          <input
-            className="contentInput"
-            type="text" //date
-            value={form.released}
-            onChange={changeHandler}
-            name="released"
-          />
-          {errors.released && (
-            <span className="formText">{errors.released}</span>
-          )}
-        </div>
-        <div>
-          <label className="formText"> Rating: </label>
-          <input
-            className="contentInput"
-            type="text"
-            value={form.rating}
-            onChange={changeHandler}
-            name="rating"
-          />
-          {errors.rating && <span className="formText">{errors.rating}</span>}
-        </div>
-        <div className="genreContainer">
-          {allGenres?.map((genre) => (
-            <span>
-              {genre}
-              <input
-                type="checkbox"
-                name="genres"
-                value={genre}
-                onChange={changeHandler}
-              ></input>
-            </span>
-          ))}
-        </div>
-        <button
-          className="submitVideogames"
-          type="submit"
-          disabled={
-            !Object.values(form).every((value) => value !== "") || hasErrors()
-          }
-        >
-          Crear
-        </button>
-      </form>
-    </div>
+          <div>
+            <label className="formText"> Plataformas: </label>
+            <input
+              className="contentInput"
+              type="text"
+              value={form.platforms}
+              onChange={changeHandler}
+              name="platforms"
+            />
+            {errors.platforms && (
+              <span className="formText">{errors.platforms}</span>
+            )}
+          </div>
+          <div>
+            <label className="formText"> Fecha de lanzamiento: </label>
+            <input
+              className="contentInput"
+              type="text" //date
+              value={form.released}
+              onChange={changeHandler}
+              name="released"
+            />
+            {errors.released && (
+              <span className="formText">{errors.released}</span>
+            )}
+          </div>
+          <div>
+            <label className="formText"> Rating: </label>
+            <input
+              className="contentInput"
+              type="text"
+              value={form.rating}
+              onChange={changeHandler}
+              name="rating"
+            />
+            {errors.rating && <span className="formText">{errors.rating}</span>}
+          </div>
+          <div className="genreContainer">
+            {allGenres?.map((genre) => (
+              <span>
+                {genre}
+                <input
+                  type="checkbox"
+                  name="genres"
+                  value={genre}
+                  onChange={changeHandler}
+                ></input>
+              </span>
+            ))}
+          </div>
+          <button
+            className="submitVideogames"
+            type="submit"
+            disabled={
+              !Object.values(form).every((value) => value !== "") || hasErrors()
+            }
+          >
+            Crear
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 

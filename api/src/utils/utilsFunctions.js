@@ -13,6 +13,7 @@ const filterGame = (game) => {
       background_image: game.background_image,
       released: game.released,
       rating: game.rating,
+      reviews: game.reviews_count,
     };
   } else {
     return {
@@ -24,6 +25,7 @@ const filterGame = (game) => {
       background_image: game.background_image,
       released: game.released,
       rating: game.rating,
+      reviews: game.reviews_count,
     };
   }
 };
@@ -40,6 +42,7 @@ const infoFiltered = (arr) =>
         background_image: game.background_image,
         released: game.released,
         rating: game.rating,
+        reviews: game.reviews_count,
       };
     } else {
       return {

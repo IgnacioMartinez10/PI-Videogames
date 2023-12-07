@@ -104,11 +104,11 @@ export const ratingOrder = (orden) => {
   };
 };
 
-export function resetFilters() {
-  console.log("entro en action");
+export function resetFilters(filtrosIniciales) {
   return function (dispatch) {
     dispatch({
       type: RESET_GAMES,
+      payload: filtrosIniciales,
     });
   };
 }

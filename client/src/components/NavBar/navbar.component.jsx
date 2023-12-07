@@ -17,17 +17,18 @@ function Navbar() {
   const dispatch = useDispatch();
 
   const genres = useSelector((state) => state.filteredGenres);
+  const filtrosLocales = useSelector((state) => state.filtros);
 
   console.log(genres);
   useEffect(() => {
     dispatch(getGenres());
   }, [dispatch]);
 
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState("");
 
   const reseteo = () => {
-    dispatch(resetFilters());
-    console.log(resetFilters);
+    dispatch(resetFilters(filtrosLocales));
+    setSearch("");
   };
 
   const inputSearchHandler = (event) => {
@@ -66,82 +67,86 @@ function Navbar() {
   };
 
   return (
-    <div className="searchBarContainer">
-      <Link to="/home" onClick={homeLinkHandler} className="linksContainer">
-        HOME
-      </Link>
-      <Link to="/create" className="linksContainer">
-        Crear un videojuego
-      </Link>
-      <div className="filterContainer">
-        <select
-          className="selectContainer"
-          name="Genres"
-          onChange={filterHandler}
-        >
-          <optgroup label="Géneros">
-            <option value="AllGenres">Géneros</option>
-            {genres?.map((genre) => (
-              <option value={genre} key={genre.id}>
-                {genre}
-              </option>
-            ))}
-          </optgroup>
-        </select>
+    <>
+      <div className="ContainNavbar">
+        <div className="navbar">
+          <Link to="/create" className="linksContainer">
+            Crear un videojuego
+          </Link>
+        </div>
       </div>
-      <div className="filterContainer">
-        <select className="selectContainer" onChange={orderHandler}>
-          <optgroup label="Orden">
-            <option value="Default">Orden</option>
-          </optgroup>
-          <option value="A-Z">A-Z</option>
-          <option value="Z-A">Z-A</option>
-        </select>
+      <div className="searchBarContainer">
+        <div className="filterContainer">
+          <select
+            className="selectContainer"
+            name="Genres"
+            onChange={filterHandler}
+          >
+            <optgroup label="Géneros">
+              <option value={filtrosLocales.generos}>Géneros</option>
+              {genres?.map((genre) => (
+                <option value={genre} key={genre.id}>
+                  {genre}
+                </option>
+              ))}
+            </optgroup>
+          </select>
+        </div>
+        <div className="filterContainer">
+          <select className="selectContainer" onChange={orderHandler}>
+            <optgroup label="Orden">
+              <option value={filtrosLocales.alfabetico}>Orden</option>
+            </optgroup>
+            <option value="A-Z">A-Z</option>
+            <option value="Z-A">Z-A</option>
+          </select>
+        </div>
+        <div className="filterContainer">
+          <select
+            className="selectContainer"
+            name="Rating"
+            onChange={ratingHandler}
+          >
+            <optgroup label="Rating">
+              <option value={filtrosLocales.rating}>Rating</option>
+              <option value="menor">Menor Rating</option>
+              <option value="mayor">Mayor Rating</option>
+            </optgroup>
+          </select>
+        </div>
+        <div className="filterContainer">
+          <select
+            className="selectContainer"
+            name="Origen"
+            onChange={filterOrigin}
+          >
+            <optgroup label="Origen">
+              <option value={filtrosLocales.origen}>Todos</option>
+              <option value="api">API</option>
+              <option value="db">DB</option>
+            </optgroup>
+          </select>
+        </div>
+        <div>
+          <button className="buttonReset" onClick={reseteo}>
+            Reset Filtros
+          </button>
+        </div>
+        <form onSubmit={searchButtonHandler}>
+          <input
+            className="selectContainer"
+            placeholder="Busca tu juego"
+            type="search"
+            value={search}
+            onChange={inputSearchHandler}
+          />
+          <button className="buttonSearch" type="Submit">
+            Buscar
+          </button>
+        </form>
       </div>
-      <div className="filterContainer">
-        <select
-          className="selectContainer"
-          name="Rating"
-          onChange={ratingHandler}
-        >
-          <optgroup label="Rating">
-            <option value="Default">Rating</option>
-            <option value="menor">Menor Rating</option>
-            <option value="mayor">Mayor Rating</option>
-          </optgroup>
-        </select>
-      </div>
-      <div className="filterContainer">
-        <select
-          className="selectContainer"
-          name="Origen"
-          onChange={filterOrigin}
-        >
-          <optgroup label="Origen">
-            <option value="All">Todos</option>
-            <option value="api">API</option>
-            <option value="db">DB</option>
-          </optgroup>
-        </select>
-      </div>
-      <div>
-        <button className="buttonReset" onClick={reseteo}>
-          Reset Filtros
-        </button>
-      </div>
-      <form onSubmit={searchButtonHandler}>
-        <input
-          className="selectContainer"
-          placeholder="Busca tu juego"
-          type="search"
-          value={search}
-          onChange={inputSearchHandler}
-        />
-        <button className="buttonSearch" type="Submit">
-          Buscar
-        </button>
-      </form>
-    </div>
+      ;
+    </>
   );
 }
 

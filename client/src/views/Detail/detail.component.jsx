@@ -22,10 +22,11 @@ function Detail() {
             backgroundImage: `url(${game.background_image})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
+            height: "100%",
           }}
         >
-          <Link to="/home" className="estiloLink">
-            Volver Al Home
+          <Link to="/home" className="backHome">
+            Volver al Home
           </Link>
           <div className="infoContainer">
             <h2 className="estiloTexto">Nombre: {game.name}</h2>

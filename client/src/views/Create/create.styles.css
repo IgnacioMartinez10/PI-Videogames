@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Dhurjati&display=swap');
+* {
+  font-family: 'Dhurjati', sans-serif;
 
-
+} 
 .backHome{
   color: Black;
   font-weight: bold;
@@ -7,11 +10,15 @@
 }
 
 .formWrapper {
+  font-family: 'Dhurjati', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   flex-wrap: wrap;
+  backdrop-filter: blur(5px);
+}
+.bg-blur{
   backdrop-filter: blur(5px);
 }
 
@@ -29,14 +36,21 @@
 }
 
 .formText {
-  font-family: "Homer Simpson UI";
+  font-family: 'Dhurjati', sans-serif;
   color: Black;
   font-weight: bold;
 
 }
 
+
+.form{
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  padding-top: 20px;
+}
 .errorText{
-font-family: "Homer Simpson UI";
+  font-family: 'Dhurjati', sans-serif;
   -webkit-text-stroke: 2px rgb(143, 39, 18);
   -webkit-text-fill-color: transparent;
   animation: textShadowAnimation 2s infinite;
@@ -64,6 +78,7 @@ span {
 
 .genreContainer {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   width: 100%;
   height: 120px; /* Puedes ajustar esta altura según tus necesidades */

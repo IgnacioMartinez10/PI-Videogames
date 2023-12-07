@@ -8,9 +8,8 @@ function Cards() {
   const [currentPage, setCurrentPage] = useState(1);
 
   const videogames = useSelector((state) => state.filteredGames); //conecto el estado global
-  //const gamesList = videogames;
+
   if (!Array.isArray(videogames)) {
-    // Si no es un array, muestra un mensaje o un componente alternativo
     return <p>No se encontraron juegos.</p>;
   }
 
@@ -20,6 +19,8 @@ function Cards() {
   const indexOfLastGame = currentPage * gamesPerPage;
   const indexOfFirstGame = indexOfLastGame - gamesPerPage;
   const currentGames = videogames.slice(indexOfFirstGame, indexOfLastGame);
+  const jose = currentGames;
+  console.log(jose);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
