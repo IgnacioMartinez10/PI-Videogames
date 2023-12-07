@@ -23,6 +23,7 @@ function Detail() {
             backgroundSize: "cover",
             backgroundPosition: "center",
             height: "100%",
+            width: "fit-content",
           }}
         >
           <Link to="/home" className="backHome">

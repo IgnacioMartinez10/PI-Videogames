@@ -55,6 +55,7 @@
 }
 
 .detailContainer {
+  width: 1500px;
   display: flex;
   flex-direction: column;
   background-color: transparent;
