@@ -23,7 +23,7 @@ function Detail() {
             backgroundSize: "cover",
             backgroundPosition: "center",
             height: "100%",
-            width: "fit-content",
+            width: "1216px",
           }}
         >
           <div className="backHome">
