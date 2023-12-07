@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getByName,
-  getGames,
   getGenres,
   filterByGenres,
   gamesOrder,
@@ -41,9 +40,6 @@ function Navbar() {
     event.preventDefault();
     dispatch(getByName(search));
     setSearch("");
-  };
-  const homeLinkHandler = () => {
-    dispatch(getGames());
   };
 
   const filterHandler = (e) => {
@@ -145,7 +141,6 @@ function Navbar() {
           </button>
         </form>
       </div>
-      ;
     </>
   );
 }

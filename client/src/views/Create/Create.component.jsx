@@ -194,16 +194,13 @@ function Create() {
   return (
     <>
       <div className="backHome">
-        <Link to="/home" className="backHome">
-          {" "}
-          Volver al Home
-        </Link>
+        <Link to="/home"> Volver al Home</Link>
       </div>
       <div className="formWrapper">
         <form className="form" onSubmit={submitHandler}>
           <div className="inputGroup">
             <div>
-              <label className="formText"> Nombre: </label>
+              <label className="formText"> NOMBRE: </label>
               <input
                 className="contentInput"
                 type="text"
@@ -214,7 +211,7 @@ function Create() {
               {errors.name && <span className="formText">{errors.name}</span>}
             </div>
             <div>
-              <label className="formText"> Image: </label>
+              <label className="formText"> IMAGEN: </label>
               <input
                 className="contentInput"
                 type="text"
@@ -228,7 +225,7 @@ function Create() {
             </div>
           </div>
           <div>
-            <label className="formText"> Descripción: </label>
+            <label className="formText"> DESCRIPCION: </label>
             <input
               className="contentInput"
               type="text"
@@ -241,7 +238,7 @@ function Create() {
             )}
           </div>
           <div>
-            <label className="formText"> Plataformas: </label>
+            <label className="formText"> PLATAFORMAS: </label>
             <input
               className="contentInput"
               type="text"
@@ -254,7 +251,7 @@ function Create() {
             )}
           </div>
           <div>
-            <label className="formText"> Fecha de lanzamiento: </label>
+            <label className="formText"> FECHA DE LANZAMIENTO: </label>
             <input
               className="contentInput"
               type="text" //date
@@ -267,7 +264,7 @@ function Create() {
             )}
           </div>
           <div>
-            <label className="formText"> Rating: </label>
+            <label className="formText"> RATING: </label>
             <input
               className="contentInput"
               type="text"

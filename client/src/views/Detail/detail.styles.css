@@ -99,3 +99,10 @@
   /* Borde negro */
   margin-top: 100px;
 }
+
+.backHome{
+  width: fit-content;
+  border: 2px solid orange;
+  border-radius: 10px;
+  padding: 10px;
+}
