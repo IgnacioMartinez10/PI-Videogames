@@ -197,6 +197,7 @@ function Create() {
         <Link to="/home"> Volver al Home</Link>
       </div>
       <div className="formWrapper">
+        <h2>Crear Videojuego</h2>
         <form className="form" onSubmit={submitHandler}>
           <div className="inputGroup">
             <div>

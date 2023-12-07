@@ -4,19 +4,25 @@
 
 } 
 .backHome{
+  width: 100%;
   color: Black;
   font-weight: bold;
   font-size:30px ;
-  background-color: gray;
+  backdrop-filter: blur(5px);
 }
 .backHome a{
   text-decoration: none;
   color: black;
+  border: 1px solid black;
+  background-color: gray;
+  border-radius: 10px;
+  padding: 3px;
 }
 
 .formWrapper {
   font-family: 'Dhurjati', sans-serif;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;

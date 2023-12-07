@@ -26,9 +26,9 @@ function Detail() {
             width: "fit-content",
           }}
         >
-          <Link to="/home" className="backHome">
-            Volver al Home
-          </Link>
+          <div className="backHome">
+            <Link to="/home"> Volver al Home</Link>
+          </div>
           <div className="infoContainer">
             <h2 className="estiloTexto">Nombre: {game.name}</h2>
             <h2 className="estiloTexto">ID: {game.id}</h2>
