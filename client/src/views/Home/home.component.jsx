@@ -37,7 +37,7 @@ function Home() {
         <Load />
       ) : (
         <div className="homeContainer">
-          <h2 className="homeText">Pi - Videogames </h2>
+          <h2 className="homeText">Pi - Videogames ! </h2>
           <Navbar />
           <Cards />
         </div>
