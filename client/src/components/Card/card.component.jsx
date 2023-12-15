@@ -9,7 +9,7 @@ function Card(props) {
         className="cardContainer"
         style={{
           backgroundImage: `url(${image})`,
-          backgroundSize: "cover",
+          backgroundSize: "cover" ,
           backgroundPosition: "center",
         }}
       >
