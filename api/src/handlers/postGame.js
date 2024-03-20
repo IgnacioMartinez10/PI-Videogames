@@ -1,4 +1,4 @@
-const { createGameDB } = require("../controllers/gamesController");
+const { createGameDB } = require("../controllers/createGameDB");
 
 const postGame = async (req, res) => {
   //el req trae el body del game a crear(info)

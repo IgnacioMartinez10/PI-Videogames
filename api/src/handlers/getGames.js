@@ -1,7 +1,5 @@
-const {
-  getAllGames,
-  getGamesByName,
-} = require("../controllers/gamesController");
+const { getAllGames } = require ("../controllers/getAllGames")
+const { getGamesByName } =require ("../controllers/gamesController")
 
 const getGames = async (req, res) => {
   const { name } = req.query;

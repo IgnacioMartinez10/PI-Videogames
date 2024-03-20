@@ -1,4 +1,4 @@
-const { getByIdDB } = require("../controllers/gamesController");
+const { getByIdDB } = require("../controllers/getGameById");
 
 const getById = async (req, res) => {
   //el req trae los params

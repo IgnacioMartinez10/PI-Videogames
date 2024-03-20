@@ -1,4 +1,4 @@
-const axios = require("axios");
+/* const axios = require("axios");
 const { Videogame, Genre } = require("../db");
 const { API_KEY } = process.env;
 const { infoFiltered, filterGame } = require("../utils/utilsFunctions");
@@ -132,21 +132,22 @@ const getAllGamesFromApiByName = async (name) => {
   return gamesByNameApi;
 };
 
-const combineAndFilterGames = (gamesFromDB, gamesFromApi) => {
-  // Filtrar duplicados
-  const uniqueGamesFromApi = gamesFromApi.filter((apiGame) => {
-    return !gamesFromDB.some((dbGame) => dbGame.id === apiGame.id);
-  });
+ const combineAndFilterGames = (gamesFromDB, gamesFromApi) => {
+   // Filtrar duplicados
+   const uniqueGamesFromApi = gamesFromApi.filter((apiGame) => {
+     return !gamesFromDB.some((dbGame) => dbGame.id === apiGame.id);
+   });
 
-  // Combinar juegos de la base de datos y de la API
-  const combinedGames = [...gamesFromDB, ...uniqueGamesFromApi];
+   // Combinar juegos de la base de datos y de la API
+   const combinedGames = [...gamesFromDB, ...uniqueGamesFromApi];
 
-  return combinedGames;
-};
+   return combinedGames;
+ };
 
-module.exports = {
-  createGameDB,
-  getByIdDB,
-  getAllGames,
-  getGamesByName,
-};
+ module.exports = {
+   createGameDB,
+   getByIdDB,
+   getAllGames,
+   getGamesByName,
+ };
+ */

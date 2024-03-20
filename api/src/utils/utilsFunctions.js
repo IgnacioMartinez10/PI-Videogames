@@ -74,7 +74,21 @@ const fillDBwithGenres = async () => {
   }
   genresDB = await Genre.findAll();
 };
+
+
+const combineAndFilterGames = (gamesFromDB, gamesFromApi) => {
+  // Filtrar duplicados
+  const uniqueGamesFromApi = gamesFromApi.filter((apiGame) => {
+    return !gamesFromDB.some((dbGame) => dbGame.id === apiGame.id);
+  });
+
+  // Combinar juegos de la base de datos y de la API
+  const combinedGames = [...gamesFromDB, ...uniqueGamesFromApi];
+
+  return combinedGames;
+};
 module.exports = {
+  combineAndFilterGames,
   infoFiltered,
   fillDBwithGenres,
   filterGame,
