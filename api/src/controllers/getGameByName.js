@@ -1,6 +1,7 @@
 const axios = require("axios");
 const { Videogame, Genre } = require("../db");
 const { combineAndFilterGames } = require("../utils/utilsFunctions");
+const { getAllGamesFromApiByName } = require("./getAllGamesApiByName")
 const { Op } = require("sequelize");
 
 

@@ -1,5 +1,5 @@
 const { getAllGames } = require ("../controllers/getAllGames")
-const { getGamesByName } =require ("../controllers/gamesController")
+const { getGamesByName } =require ("../controllers/getGameByName")
 
 const getGames = async (req, res) => {
   const { name } = req.query;
