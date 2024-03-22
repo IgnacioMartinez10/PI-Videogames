@@ -4,6 +4,7 @@ import { getGames } from "../../redux/actions";
 import Navbar from "../../components/NavBar/navbar.component";
 import Cards from "../../components/CardsContainer/cards.component";
 import Load from "../Loading/Loading";
+import Nav from "../../components/Nav/nav.component";
 
 import "./home.styles.css";
 
@@ -37,7 +38,7 @@ function Home() {
         <Load />
       ) : (
         <div className="homeContainer">
-          <h2 className="homeText">Pi - Videogames ! </h2>
+          <Nav />
           <Navbar />
           <Cards />
         </div>

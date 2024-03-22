@@ -8,7 +8,7 @@ const getAllGenres = async () => {
     const { data } = await axios.get(
       `https://api.rawg.io/api/genres?key=${API_KEY}`
     );
-    const genresNames = data.results.map((genre) => genre.name);
+    const genresNames = data.results.map((genre) => genre.name.split(' '));
     for (let i = 0; i < genresNames.length; i++) {
       await Genre.create({ name: genresNames[i] });
     }

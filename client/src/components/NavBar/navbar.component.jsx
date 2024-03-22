@@ -15,48 +15,57 @@ import {
 function Navbar() {
   const dispatch = useDispatch();
 
+  // Obtener los géneros y los filtros locales del estado global
   const genres = useSelector((state) => state.filteredGenres);
   const filtrosLocales = useSelector((state) => state.filtros);
 
-  console.log(genres);
+  // Efecto para obtener los géneros al montar el componente
   useEffect(() => {
     dispatch(getGenres());
   }, [dispatch]);
 
+  // Estado local para la búsqueda
   const [search, setSearch] = useState("");
 
+  // Función para resetear los filtros locales
   const reseteo = () => {
     dispatch(resetFilters(filtrosLocales));
     setSearch("");
   };
 
+  // Función para manejar el cambio en el campo de búsqueda
   const inputSearchHandler = (event) => {
     event.preventDefault();
     const value = event.target.value;
     setSearch(value);
   };
 
+  // Función para manejar la búsqueda al hacer clic en el botón
   const searchButtonHandler = (event) => {
     event.preventDefault();
     dispatch(getByName(search));
     setSearch("");
   };
 
+  // Función para manejar el cambio en el filtro de géneros
   const filterHandler = (e) => {
     const { value } = e.target;
     dispatch(filterByGenres(value));
   };
 
+  // Función para manejar el cambio en el filtro de origen
   const filterOrigin = (e) => {
     const { value } = e.target;
     dispatch(gamesOrigin(value));
   };
 
+  // Función para manejar el cambio en el filtro de orden
   const orderHandler = (e) => {
     const { value } = e.target;
     dispatch(gamesOrder(value));
   };
 
+  // Función para manejar el cambio en el filtro de rating
   const ratingHandler = (e) => {
     const { value } = e.target;
     dispatch(ratingOrder(value));
@@ -64,6 +73,7 @@ function Navbar() {
 
   return (
     <>
+      {/* Barra de navegación */}
       <div className="ContainNavbar">
         <div className="navbar">
           <Link to="/create" className="linksContainer">
@@ -71,7 +81,10 @@ function Navbar() {
           </Link>
         </div>
       </div>
+
+      {/* Contenedor de la barra de búsqueda y filtros */}
       <div className="searchBarContainer">
+        {/* Filtro de géneros */}
         <div className="filterContainer">
           <select
             className="selectContainer"
@@ -93,6 +106,8 @@ function Navbar() {
             </optgroup>
           </select>
         </div>
+
+        {/* Filtro de orden */}
         <div className="filterContainer">
           <select className="selectContainer" onChange={orderHandler}>
             <optgroup label="Orden">
@@ -102,6 +117,8 @@ function Navbar() {
             <option value="Z-A">Z-A</option>
           </select>
         </div>
+
+        {/* Filtro de rating */}
         <div className="filterContainer">
           <select
             className="selectContainer"
@@ -115,6 +132,8 @@ function Navbar() {
             </optgroup>
           </select>
         </div>
+
+        {/* Filtro de origen */}
         <div className="filterContainer">
           <select
             className="selectContainer"
@@ -128,11 +147,15 @@ function Navbar() {
             </optgroup>
           </select>
         </div>
+
+        {/* Botón para resetear los filtros */}
         <div>
           <button className="buttonReset" onClick={reseteo}>
             Reset Filtros
           </button>
         </div>
+
+        {/* Formulario de búsqueda */}
         <form onSubmit={searchButtonHandler}>
           <input
             className="selectContainer"
