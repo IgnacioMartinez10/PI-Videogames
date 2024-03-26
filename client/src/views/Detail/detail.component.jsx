@@ -26,7 +26,7 @@ function Detail() {
           <div className="backHome">
             <Link to="/home">Volver al Home</Link>
           </div>
-          <div className="containerDetail">
+          <div className="containerDetailCard">
             <div className="infoContainer">
               <h2 className="estiloTexto">Nombre: {game.name}</h2>
               <p className="estiloTexto">ID: {game.id}</p>
@@ -42,17 +42,17 @@ function Detail() {
                     </p>
                   ))}
               </div>
-            </div>
-            <div className="imgContainer">
+              <div className="imgContainer">
               <img className="imgDetail" src={game.background_image} alt="" />
             </div>
-          </div>
-          {/* Mostrar solo una parte de la descripción si está definida */}
-          <div className="description">
-            {game.description ? (showFullDescription ? game.description : `${game.description.slice(0, 200)}...`) : ''}
-            <span className="verMas" onClick={handleToggleDescription}>
-              {showFullDescription ? "Ver menos" : "Ver más"}
-            </span>
+              <div className="description">
+                {game.description ? (showFullDescription ? game.description : `${game.description.slice(0, 200)}...`) : ''}
+                <span className="verMas" onClick={handleToggleDescription}>
+                  {showFullDescription ? "Ver menos" : "Ver más"}
+                </span>
+              </div>
+            </div>
+            
           </div>
         </>
       )}

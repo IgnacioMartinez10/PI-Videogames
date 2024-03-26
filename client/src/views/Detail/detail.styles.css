@@ -1,10 +1,10 @@
-.detailCard {
+.detailCard{
+  width: 80%; /* Ajusta el ancho de la tarjeta */
+  margin: 20px auto; /* Centra la tarjeta */
   background-color: #f4f4f4;
   border-radius: 10px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
   padding: 15px;
-  margin: 20px;
-  max-width: 300px; /* Limitamos el ancho máximo de la tarjeta */
 }
 
 .backHome {
@@ -16,6 +16,10 @@
   display: inline-block;
 }
 
+.containerDetailCard{
+  display: flex;
+  flex-direction: row;
+}
 
 .estiloTexto {
   font-size: 1rem;
@@ -45,8 +49,27 @@
   cursor: pointer;
 }
 
-
 .imgDetail{
-  width: 10px;
-  height: 10px;
+  max-width: 100%; /* Ajusta el ancho máximo de la imagen */
+  border-radius: 10px;
+}
+
+/* Media queries para hacer el diseño responsive */
+@media screen and (max-width: 768px) {
+  .containerDetailCard {
+    flex-direction: column;
+  }
+  
+  .imgContainer,
+  .infoContainer {
+    max-width: 100%;
+  }
+  
+  .estiloTexto {
+    font-size: 0.8rem; /* Ajuste de tamaño para dispositivos móviles */
+  }
+  
+  .description {
+    font-size: 0.8rem; /* Ajuste de tamaño para dispositivos móviles */
+  }
 }
