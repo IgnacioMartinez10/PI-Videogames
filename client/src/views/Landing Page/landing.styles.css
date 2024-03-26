@@ -1,23 +1,19 @@
-.container{
+.container {
   display: flex;
-background-image: url('../../../assets/joystick.jpg');
-background-size: cover;
-background-repeat: repeat;
-height: 47vw;
-
+  background-image: url('../../../assets/joystick.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
 }
 
-
-.containerLanding{
-
+.containerLanding {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
- 
-  
-
 }
 
 .containerInfo {
@@ -25,41 +21,76 @@ height: 47vw;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 10px solid black;
-  border-radius: 10px;
+  border-radius: 1rem; /* Usando rem en lugar de píxeles */
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
+  border: 0.2rem solid black;
+  
 }
 
 .botondeinicio {
-    margin-bottom: 10px;
-    width: 100px; 
-    height: 100px; 
-    border-radius: 50%;
-    background-color: transparent;
-    color: black;
-    transition: all 1s;
-  }
+  margin-bottom: 1rem; /* Usando rem en lugar de píxeles */
+  border: 0.1rem solid black; /* Usando rem en lugar de píxeles */
+  border-radius: 0.3rem;
+  color: white;
+  transition: all 1s;
+  padding: 0.5rem 1rem; /* Usando rem en lugar de píxeles */
+  font-family: "Roboto Mono", monospace;
+}
 
-  
-  .botondeinicio:hover{
-    transform: scale(1.1, 1.1 ) ;
-  }
-  
-  
+.botondeinicio:hover {
+  transform: scale(1.1);
+}
+
+.landingTitle {
+  font-size: 3rem; /* Usando rem en lugar de píxeles */
+  color: #E3E3E3;
+  padding: 1rem; /* Usando rem en lugar de píxeles */
+  text-shadow: 0.2rem 0.2rem black; /* Usando rem en lugar de píxeles */
+}
+
+.estiloLinks {
+  width: 100%;
+  font-size: 1.6rem; /* Usando rem en lugar de píxeles */
+  font-weight: bold;
+  text-decoration: none;
+  padding: 1rem; /* Usando rem en lugar de píxeles */
+}
+
+
+/* Media query para pantallas de hasta 768px de ancho */
+@media screen and (max-width: 768px) {
   .landingTitle {
-    font-size: 40px;
-    color: orange;
-    padding: 10px;
-    text-shadow: 2px 2px black;
+    font-size: 2.5rem; /* Reducimos el tamaño del título */
+  }
+  .estiloLinks {
+    font-size: 1.4rem; /* Reducimos el tamaño del texto de los enlaces */
+    padding: 0.8rem; /* Reducimos el padding de los enlaces */
+  }
+  .container {
+    display: flex;
+    background-image: url('../../../assets/joystick.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    height: 100vh;
+  }
+}
+
+/* Media query para pantallas de hasta 480px de ancho */
+@media screen and (max-width: 480px) {
+  .landingTitle {
+    font-size: 2rem; /* Reducimos aún más el tamaño del título */
+  }
+  .estiloLinks {
+    font-size: 1.2rem; /* Reducimos aún más el tamaño del texto de los enlaces */
+    padding: 0.5rem; /* Reducimos aún más el padding de los enlaces */
+  }
+    .container {
+    display: flex;
+    background-image: url('../../../assets/joystick.jpg');
+    background-size: cover;
+    background-repeat: repeat;
   }
   
-  
-  
-
-  .estiloLinks{
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
 }

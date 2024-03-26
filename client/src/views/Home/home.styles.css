@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Dhurjati&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Dhurjati', sans-serif;
+    font-family: "Roboto Mono", monospace;
 
       background-image: url("../../../assets/joystick.jpg");
     background-repeat: no-repeat;
@@ -16,7 +15,7 @@ body {
   
 
 .homeContainer{
-  font-family: 'Dhurjati', sans-serif;
+  font-family: "Roboto Mono", monospace;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,7 +23,7 @@ body {
 }
 
 .homeText {
-  font-family: 'Dhurjati', sans-serif;
+  font-family: "Roboto Mono", monospace;
   font-size: 50px;
   color: rgb(223, 104, 8);
   margin: 0px;

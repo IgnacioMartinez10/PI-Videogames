@@ -6,12 +6,12 @@ function Landing() {
     <div className="container">
       <div className="containerLanding">
         <div className="containerInfo">
-          <span className="landingTitle"> Bienvenidos Al Pi-Videogames</span>
-          <button className="botondeinicio">
+          <span className="landingTitle">Pi-Videogames</span>
+          <div className="botondeinicio">
             <Link className="estiloLinks" to="/home">
-              Ingresar
+              INGRESAR
             </Link>
-          </button>
+          </div>
         </div>
       </div>
     </div>

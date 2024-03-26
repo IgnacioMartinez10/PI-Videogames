@@ -30,10 +30,13 @@ function Cards() {
     <div className="cardsContainer">
       {currentGames?.map((game) => (
         <Card
+        // si quiero mostrar algo en la card principal tengo que agregarlo aca abajo
           id={game.id}
           name={game.name}
           image={game.image}
           genres={game.genres}
+          rating={game.rating}
+
         />
       ))}
       <Pagination

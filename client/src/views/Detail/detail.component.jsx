@@ -1,55 +1,60 @@
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./detail.styles.css";
-import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import { getGame } from "../../redux/actions";
+import "./detail.styles.css"; // Importamos los estilos CSS
 
 function Detail() {
   const { id } = useParams();
-
   const game = useSelector((state) => state.gameDetail);
   const dispatch = useDispatch();
+  const [showFullDescription, setShowFullDescription] = useState(false);
 
   useEffect(() => {
     dispatch(getGame(id));
   }, [dispatch, id]);
+
+  // Función para manejar el click en "ver más"
+  const handleToggleDescription = () => {
+    setShowFullDescription(!showFullDescription);
+  };
+
   return (
-    <div>
+    <div className="detailCard">
       {game && (
-        <div
-          className="detailContainer"
-          style={{
-            backgroundImage: `url(${game.background_image})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            height: "100%",
-            width: "1216px",
-          }}
-        >
+        <>
           <div className="backHome">
-            <Link to="/home"> Volver al Home</Link>
+            <Link to="/home">Volver al Home</Link>
           </div>
-          <div className="infoContainer">
-            <h2 className="estiloTexto">Nombre: {game.name}</h2>
-            <h2 className="estiloTexto">ID: {game.id}</h2>
-            <h2 className="estiloTexto">Plataformas: {game.platforms}</h2>
-            <h2 className="estiloTexto">
-              Fecha de Lanzamiento: {game.released}
-            </h2>
-            <h2 className="estiloTexto">Ranking: {game.rating}</h2>
-            <div className="genresContainer">
-              <h2 className="estiloTexto">Géneros: </h2>
-              {game.genres &&
-                game.genres.map((genre) => (
-                  <h2 className="estiloTexto" key={genre.id}>
-                    {genre}
-                  </h2>
-                ))}
+          <div className="containerDetail">
+            <div className="infoContainer">
+              <h2 className="estiloTexto">Nombre: {game.name}</h2>
+              <p className="estiloTexto">ID: {game.id}</p>
+              <p className="estiloTexto">Plataformas: {game.platforms}</p>
+              <p className="estiloTexto">Fecha de Lanzamiento: {game.released}</p>
+              <p className="estiloTexto">Ranking: {game.rating}</p>
+              <div className="genresContainer">
+                <p className="estiloTexto">Géneros: </p>
+                {game.genres &&
+                  game.genres.map((genre) => (
+                    <p className="estiloTexto" key={genre.id}>
+                      {genre}
+                    </p>
+                  ))}
+              </div>
+            </div>
+            <div className="imgContainer">
+              <img className="imgDetail" src={game.background_image} alt="" />
             </div>
           </div>
-
-          <div className="description">{game.description}</div>
-        </div>
+          {/* Mostrar solo una parte de la descripción si está definida */}
+          <div className="description">
+            {game.description ? (showFullDescription ? game.description : `${game.description.slice(0, 200)}...`) : ''}
+            <span className="verMas" onClick={handleToggleDescription}>
+              {showFullDescription ? "Ver menos" : "Ver más"}
+            </span>
+          </div>
+        </>
       )}
     </div>
   );

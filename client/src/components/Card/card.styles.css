@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     background-color: transparent;
-    height: 250px;
     max-width: 350px;
     border: 2px solid black;
     border-radius: 5px;
@@ -32,3 +31,11 @@
     list-style: none;
 }
 
+/* Media query para pantallas de hasta 768px de ancho */
+@media screen and (max-width: 768px) {
+    .cardContainer {
+        max-width: 100%; /* La tarjeta ocupará todo el ancho disponible */
+        height: auto; /* La altura se ajustará automáticamente según el contenido */
+        margin-bottom: 20px; /* Espacio entre tarjetas */
+    }
+}

@@ -1,16 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Dhurjati&display=swap');
-* {
-  font-family: 'Dhurjati', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
+* {
+  font-family: "Roboto Mono", monospace;
 } 
-.backHome{
+
+.backHome {
   width: 100%;
-  color: Black;
+  color: black;
   font-weight: bold;
-  font-size:30px ;
+  font-size: 30px;
   backdrop-filter: blur(5px);
 }
-.backHome a{
+
+.backHome a {
   text-decoration: none;
   color: black;
   border: 1px solid black;
@@ -20,24 +22,17 @@
 }
 
 .formWrapper {
-  font-family: 'Dhurjati', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  flex-wrap: wrap;
-  backdrop-filter: blur(5px);
-}
-.bg-blur{
   backdrop-filter: blur(5px);
 }
 
 .inputWrapper {
-  flex-basis: 33.33%;
+  width: 100%;
   margin-bottom: 20px;
-  width: 20px;
-  border: blue;
 }
 
 .inputGroup {
@@ -47,32 +42,28 @@
 }
 
 .formText {
-  font-family: 'Dhurjati', sans-serif;
-  color: Black;
+  color: black;
   font-weight: bold;
-
 }
 
-
-.form{
+.form {
   border: 2px solid black;
   border-radius: 20px;
   padding: 10px;
   padding-top: 20px;
+  width: 90%;
+  max-width: 500px;
 }
-.errorText{
-  font-family: 'Dhurjati', sans-serif;
+
+.errorText {
   -webkit-text-stroke: 2px rgb(143, 39, 18);
   -webkit-text-fill-color: transparent;
   animation: textShadowAnimation 2s infinite;
   font-size: larger;
-
 }
 
-
-
 .contentInput {
-  width: 60%;
+  width: 100%;
   height: 30px;
   background-color: transparent;
   border: orange 1px solid;
@@ -83,37 +74,68 @@
 }
 
 span {
-  color: Black;
+  color: black;
   font-weight: bold;
 }
 
 .genreContainer {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   width: 100%;
-  height: 120px; /* Puedes ajustar esta altura según tus necesidades */
-  margin-top: 20px; /* Puedes ajustar esta separación según tus necesidades */
+  margin-top: 20px;
 }
+
 .genreContainer span {
   flex-basis: calc(100% / 8);
-  font-size: 15px; /* Puedes ajustar el tamaño de fuente según tus necesidades */
+  font-size: 15px;
 }
 
-.estiloLinks{
+.estiloLinks {
   margin-top: 75px;
-margin-bottom: 50px;
-font-size: 50px;
-margin-left: 5px;
-color: rgb(0, 0, 0);
-font-family: "Bigelow Rules";
-
+  margin-bottom: 50px;
+  font-size: 50px;
+  margin-left: 5px;
+  color: black;
 }
 
-.submitVideogames{
+.submitVideogames {
   background-color: black;
   color: white;
   border-radius: 10px;
   height: 40px;
   width: auto;
+}
+
+/* Media query para pantallas de hasta 768px de ancho */
+@media screen and (max-width: 768px) {
+  .form {
+    width: 95%;
+  }
+
+  .genreContainer span {
+    flex-basis: calc(100% / 4);
+    font-size: 13px;
+  }
+
+  .submitVideogames {
+    width: 100%;
+  }
+}
+
+/* Media query para pantallas de hasta 480px de ancho */
+@media screen and (max-width: 480px) {
+  .form {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .genreContainer span {
+    flex-basis: calc(100% / 2);
+    font-size: 12px;
+  }
+
+  .submitVideogames {
+    width: 100%;
+    margin-top: 20px;
+  }
 }
