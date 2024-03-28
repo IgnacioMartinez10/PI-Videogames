@@ -20,42 +20,44 @@ function Detail() {
   };
 
   return (
-    <div className="detailCard">
-      {game && (
-        <>
-          <div className="backHome">
-            <Link to="/home">Volver al Home</Link>
-          </div>
-          <div className="containerDetailCard">
-            <div className="infoContainer">
-              <h2 className="estiloTexto">Nombre: {game.name}</h2>
-              <p className="estiloTexto">ID: {game.id}</p>
-              <p className="estiloTexto">Plataformas: {game.platforms}</p>
-              <p className="estiloTexto">Fecha de Lanzamiento: {game.released}</p>
-              <p className="estiloTexto">Ranking: {game.rating}</p>
-              <div className="genresContainer">
-                <p className="estiloTexto">Géneros: </p>
-                {game.genres &&
-                  game.genres.map((genre) => (
-                    <p className="estiloTexto" key={genre.id}>
-                      {genre}
-                    </p>
-                  ))}
-              </div>
-              <div className="imgContainer">
-              <img className="imgDetail" src={game.background_image} alt="" />
+    <div className="containerDetail">
+      <div className="detailCard">
+        {game && (
+          <>
+            <div className="backHome">
+              <Link to="/home">Volver al Home</Link>
             </div>
-              <div className="description">
-                {game.description ? (showFullDescription ? game.description : `${game.description.slice(0, 200)}...`) : ''}
-                <span className="verMas" onClick={handleToggleDescription}>
-                  {showFullDescription ? "Ver menos" : "Ver más"}
-                </span>
+            <div className="containerDetailCard">
+              <div className="infoContainer">
+                <h2 className="estiloTexto">Nombre: {game.name}</h2>
+                <p className="estiloTexto">ID: {game.id}</p>
+                <p className="estiloTexto">Plataformas: {game.platforms}</p>
+                <p className="estiloTexto">Fecha de Lanzamiento: {game.released}</p>
+                <p className="estiloTexto">Ranking: {game.rating}</p>
+                <div className="genresContainer">
+                  <p className="estiloTexto">Géneros: </p>
+                  {game.genres &&
+                    game.genres.map((genre) => (
+                      <p className="estiloTexto" key={genre.id}>
+                        {genre}
+                      </p>
+                    ))}
+                </div>
+                <div className="imgContainer">
+                  <img className="imgDetail" src={game.background_image} alt="" />
+                </div>
+                <div className="description">
+                  {game.description ? (showFullDescription ? game.description : `${game.description.slice(0, 200)}...`) : ''}
+                  <span className="verMas" onClick={handleToggleDescription}>
+                    {showFullDescription ? "Ver menos" : "Ver más"}
+                  </span>
+                </div>
               </div>
+
             </div>
-            
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 }

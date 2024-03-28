@@ -1,5 +1,9 @@
+.containerDetail{
+  backdrop-filter: blur(5px);
+}
+
 .detailCard{
-  width: 80%; /* Ajusta el ancho de la tarjeta */
+ width: 80%;
   margin: 20px auto; /* Centra la tarjeta */
   background-color: #f4f4f4;
   border-radius: 10px;
