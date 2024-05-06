@@ -9,13 +9,14 @@ function Card(props) {
         className="cardContainer"
         style={{
           backgroundImage: `url(${image})`,
-          backgroundSize: "cover" ,
+          backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <p className="infoContainer"> Game: {name} </p>
-        <p className="infoContainer"> Géneros: {genres}</p>
-        <p className="infoContainer">Ranking : {rating}</p>
+        <div className="infoContainer">
+          <h3 className="title"> {name} </h3>
+          <p className="rating"> {rating}</p>
+        </div>
       </div>
     </Link>
   );

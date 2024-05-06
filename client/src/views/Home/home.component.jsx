@@ -4,12 +4,13 @@ import { getGames } from "../../redux/actions";
 import Navbar from "../../components/NavBar/navbar.component";
 import Cards from "../../components/CardsContainer/cards.component";
 import Load from "../Loading/Loading";
-import Nav from "../../components/Nav/nav.component";
+import Head from "../../components/Head/Head";
 
 import "./home.styles.css";
+import Asidebar from "../../components/AsideBar/Asidebar";
 
 function Home() {
-  const videogames = useSelector((state) => state.videogames);
+  const videogames = useSelector(state => state.videogames);
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function Home() {
       setLoading(true);
       dispatch(getGames())
         .then(() => setLoading(false))
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
           setLoading(false);
         });
@@ -32,16 +33,18 @@ function Home() {
   }, [dispatch, videogames]);
 
   return (
-    <div>
+    <div className="homeContainer">
       {" "}
+      {/* Utiliza la clase homeContainer para envolver los elementos */}
       {loading ? (
         <Load />
       ) : (
-        <div className="homeContainer">
-          <Nav />
+        <>
+          <Head />
+          <Asidebar /> {/* Agrega la barra lateral aquí */}
           <Navbar />
           <Cards />
-        </div>
+        </>
       )}
     </div>
   );

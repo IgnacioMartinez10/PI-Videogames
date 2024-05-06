@@ -9,6 +9,7 @@ import {
   POST_GAME,
   GAMES_RATING,
   RESET_GAMES,
+  RESET_ORIGIN_FILTER
 } from "./actions";
 
 let initialState = {
@@ -61,13 +62,19 @@ function rootReducer(state = initialState, action) {
         genres: action.payload,
         filteredGenres: action.payload,
       };
-    case RESET_GAMES:
-      return {
-        ...state,
-        videogames: [...state.gamesReset],
-        filteredGames: [...state.gamesReset],
-        filtros: { ...action.payload },
-      };
+      case RESET_GAMES:
+        return {
+          ...state,
+          videogames: [...state.gamesReset],
+          filteredGames: [...state.gamesReset],
+          filtros: { ...action.payload },
+        };
+      
+      case RESET_ORIGIN_FILTER:
+        return {
+          ...state,
+          filteredGames: [...state.videogames],
+        };
     case FILTER_GENRES:
       let genderGames = [...state.videogames];
 

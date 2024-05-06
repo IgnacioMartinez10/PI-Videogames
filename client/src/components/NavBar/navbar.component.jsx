@@ -10,14 +10,15 @@ import {
   gamesOrigin,
   ratingOrder,
   resetFilters,
+  resetOriginFilter,
 } from "../../redux/actions";
 
 function Navbar() {
   const dispatch = useDispatch();
 
   // Obtener los géneros y los filtros locales del estado global
-  const genres = useSelector((state) => state.filteredGenres);
-  const filtrosLocales = useSelector((state) => state.filtros);
+  const genres = useSelector(state => state.filteredGenres);
+  const filtrosLocales = useSelector(state => state.filtros);
 
   // Efecto para obtener los géneros al montar el componente
   useEffect(() => {
@@ -30,43 +31,44 @@ function Navbar() {
   // Función para resetear los filtros locales
   const reseteo = () => {
     dispatch(resetFilters(filtrosLocales));
+    dispatch(resetOriginFilter());
     setSearch("");
   };
 
   // Función para manejar el cambio en el campo de búsqueda
-  const inputSearchHandler = (event) => {
+  const inputSearchHandler = event => {
     event.preventDefault();
     const value = event.target.value;
     setSearch(value);
   };
 
   // Función para manejar la búsqueda al hacer clic en el botón
-  const searchButtonHandler = (event) => {
+  const searchButtonHandler = event => {
     event.preventDefault();
     dispatch(getByName(search));
     setSearch("");
   };
 
   // Función para manejar el cambio en el filtro de géneros
-  const filterHandler = (e) => {
+  const filterHandler = e => {
     const { value } = e.target;
     dispatch(filterByGenres(value));
   };
 
   // Función para manejar el cambio en el filtro de origen
-  const filterOrigin = (e) => {
+  const filterOrigin = e => {
     const { value } = e.target;
     dispatch(gamesOrigin(value));
   };
 
   // Función para manejar el cambio en el filtro de orden
-  const orderHandler = (e) => {
+  const orderHandler = e => {
     const { value } = e.target;
     dispatch(gamesOrder(value));
   };
 
   // Función para manejar el cambio en el filtro de rating
-  const ratingHandler = (e) => {
+  const ratingHandler = e => {
     const { value } = e.target;
     dispatch(ratingOrder(value));
   };
@@ -74,16 +76,8 @@ function Navbar() {
   return (
     <>
       {/* Barra de navegación */}
-      <div className="ContainNavbar">
-        <div className="navbar">
-          <Link to="/create" className="linksContainer">
-            Crear un videojuego
-          </Link>
-        </div>
-      </div>
-
       {/* Contenedor de la barra de búsqueda y filtros */}
-      <div className="searchBarContainer">
+      <div className="filtersContainer">
         {/* Filtro de géneros */}
         <div className="filterContainer">
           <select
@@ -98,7 +92,7 @@ function Navbar() {
               >
                 Géneros
               </option>
-              {genres?.map((genre) => (
+              {genres?.map(genre => (
                 <option value={genre} key={genre.id}>
                   {genre}
                 </option>
@@ -111,7 +105,7 @@ function Navbar() {
         <div className="filterContainer">
           <select className="selectContainer" onChange={orderHandler}>
             <optgroup label="Orden">
-              <option value={filtrosLocales.alfabetico}>Orden</option>
+              <option value={filtrosLocales.alfabetico}>Todos</option>
             </optgroup>
             <option value="A-Z">A-Z</option>
             <option value="Z-A">Z-A</option>
@@ -149,14 +143,14 @@ function Navbar() {
         </div>
 
         {/* Botón para resetear los filtros */}
-        <div>
+        <div className="buttonResetContainer">
           <button className="buttonReset" onClick={reseteo}>
-            Reset Filtros
+            Reset Filters
           </button>
         </div>
 
         {/* Formulario de búsqueda */}
-        <form onSubmit={searchButtonHandler}>
+        {/* <form onSubmit={searchButtonHandler}>
           <input
             className="selectContainer"
             placeholder="Busca tu juego"
@@ -167,7 +161,7 @@ function Navbar() {
           <button className="buttonSearch" type="Submit">
             Buscar
           </button>
-        </form>
+        </form> */}
       </div>
     </>
   );

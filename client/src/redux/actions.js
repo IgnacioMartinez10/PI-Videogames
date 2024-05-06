@@ -10,6 +10,7 @@ export const ORDEN_ALFABETICO = "ORDEN_ALFABETICO";
 export const GAMES_ORIGIN = "GAMES_ORIGIN";
 export const GAMES_RATING = "GAMES_RATING";
 export const RESET_GAMES = "RESET_GAMES";
+export const RESET_ORIGIN_FILTER = "RESET_ORIGIN_FILTER"
 
 const URL = "http://localhost:3001";
 axios.defaults.baseURL = URL;
@@ -110,5 +111,11 @@ export function resetFilters(filtrosIniciales) {
       type: RESET_GAMES,
       payload: filtrosIniciales,
     });
+  };
+}
+
+export function resetOriginFilter() {
+  return {
+    type: RESET_ORIGIN_FILTER,
   };
 }

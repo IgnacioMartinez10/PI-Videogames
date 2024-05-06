@@ -1,18 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Dhurjati&display=swap');
 
-.searchBarContainer {
+
+.filtersContainer {
+  background-color: #3d4754;
   display: flex;
   flex-direction: row;
-  border-radius: 15px;
-  justify-content: space-around;
+  justify-content: center;
   padding: 10px;
-  width: 90%; /* Cambiamos el ancho a un porcentaje para que sea responsive */
-  max-width: 1100px; /* Limitamos el ancho máximo */
+  width: 100%;
   line-height: 30px;
-  margin: 0 auto; /* Centramos horizontalmente */
-  margin-bottom: 30px;
   backdrop-filter: blur(5px);
-  border: 2px solid black;
+
 }
 
 .linksContainer {
@@ -30,24 +28,31 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 50px;
   border: transparent;
   background-color: transparent;
+  padding: 10px;
 }
 
 .selectContainer {
-  width: 150px;
-  height: 50px;
-  border: 3px solid black;
-  border-radius: 10px;
-  color: black;
-  font-family: "Bigelow Rules";
-  font-weight: bold;
-  font-size: 15px;
-  background-color: transparent;
-  text-align: center;
+  background-color: #f2f2f2; /* Color de fondo */
+  color: #333; /* Color del texto */
+  border: 1px solid #ccc; /* Borde */
+  padding: 8px; /* Espacio interno */
+  font-size: 16px; /* Tamaño de fuente */
+  width: 200px; /* Ancho */
+  border-radius: 5px;
+  box-sizing: border-box;
 }
+
+.selectContainer:hover {
+  background-color: #e6e6e6; /* Cambio de color al pasar el ratón */
+}
+
+.selectContainer:focus {
+ border: 1px solid #1ee4a8;
+ box-sizing: border-box;
+}
+
 
 .selectContainer::placeholder {
   color: rgb(141, 141, 141);
@@ -67,16 +72,24 @@
   text-shadow: 1px 1px gray;
 }
 
+.buttonResetContainer{
+  display: flex;
+}
 .buttonReset {
   width: 100%;
   background-color: transparent;
-  color: black;
-  border: 2px solid black;
+  color: white;
+  border: 2px solid #1ee4a8;
   border-radius: 5px;
   margin: 5px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
+.buttonReset:hover {
+  background-color: #2b323D; /* Cambia el color de fondo al pasar el ratón */
+}
 .ContainNavbar {
   display: flex;
   flex-direction: column;
@@ -93,7 +106,8 @@
 
 /* Media query para pantallas de hasta 768px de ancho */
 @media screen and (max-width: 768px) {
-  .searchBarContainer {
+  .filtersContainer {
+    display: flex;
     flex-direction: column; /* Cambiamos la dirección del flex a columna */
     align-items: center; /* Centramos los elementos */
   }

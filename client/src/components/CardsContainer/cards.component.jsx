@@ -3,11 +3,12 @@ import Card from "../Card/card.component";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import Pagination from "../Pagination/Pagination.jsx";
+import Asidebar from "../AsideBar/Asidebar.jsx";
 
 function Cards() {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const videogames = useSelector((state) => state.filteredGames); //conecto el estado global
+  const videogames = useSelector(state => state.filteredGames); //conecto el estado global
 
   if (!Array.isArray(videogames)) {
     return <p>No se encontraron juegos.</p>;
@@ -22,21 +23,20 @@ function Cards() {
   const jose = currentGames;
   console.log(jose);
 
-  const paginate = (pageNumber) => {
+  const paginate = pageNumber => {
     setCurrentPage(pageNumber);
   };
 
   return (
     <div className="cardsContainer">
-      {currentGames?.map((game) => (
+      {currentGames?.map(game => (
         <Card
-        // si quiero mostrar algo en la card principal tengo que agregarlo aca abajo
+          // si quiero mostrar algo en la card principal tengo que agregarlo aca abajo
           id={game.id}
           name={game.name}
           image={game.image}
           genres={game.genres}
           rating={game.rating}
-
         />
       ))}
       <Pagination
