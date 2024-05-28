@@ -5,9 +5,9 @@ import Navbar from "../../components/NavBar/navbar.component";
 import Cards from "../../components/CardsContainer/cards.component";
 import Load from "../Loading/Loading";
 import Head from "../../components/Head/Head";
+import Footer from "../../components/Footer/footer.componet";
 
 import "./home.styles.css";
-import Asidebar from "../../components/AsideBar/Asidebar";
 
 function Home() {
   const videogames = useSelector(state => state.videogames);
@@ -33,18 +33,18 @@ function Home() {
   }, [dispatch, videogames]);
 
   return (
-    <div className="homeContainer">
+    <div className="home">
       {" "}
       {/* Utiliza la clase homeContainer para envolver los elementos */}
       {loading ? (
         <Load />
       ) : (
-        <>
+        <div className="homeContainer">
           <Head />
-          <Asidebar /> {/* Agrega la barra lateral aquí */}
           <Navbar />
           <Cards />
-        </>
+          <Footer />
+        </div>
       )}
     </div>
   );

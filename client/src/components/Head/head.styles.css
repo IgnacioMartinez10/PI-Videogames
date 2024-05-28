@@ -24,3 +24,12 @@ a{
     list-style: none;
     color: white;
 }
+
+.githubIcon{
+    width: 3rem;
+    padding: 10px;
+}
+
+.logo{
+    padding: 10px ;
+}

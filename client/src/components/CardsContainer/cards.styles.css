@@ -7,6 +7,11 @@
   background-color: transparent;
 }
 
+a{
+  display: flex;
+  justify-content: center;
+}
+
 /* Media query para pantallas de hasta 768px de ancho */
 @media screen and (max-width: 768px) {
   .cardsContainer {

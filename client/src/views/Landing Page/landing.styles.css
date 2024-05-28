@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  background-image: url('../../../assets/joystick.jpg');
+  background-image: url('../../assets/joystick.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -70,7 +70,7 @@
   }
   .container {
     display: flex;
-    background-image: url('../../../assets/joystick.jpg');
+    background-image: url('../../assets/joystick.jpg');
     background-size: cover;
     background-repeat: repeat;
     height: 100vh;
@@ -88,7 +88,7 @@
   }
     .container {
     display: flex;
-    background-image: url('../../../assets/joystick.jpg');
+    background-image: url('../../assets/joystick.jpg');
     background-size: cover;
     background-repeat: repeat;
   }

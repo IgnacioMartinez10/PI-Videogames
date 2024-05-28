@@ -23,30 +23,34 @@ function Detail() {
   return (
     <div className="containerDetail">
       <Head />
+      <div className="backHome">
+        <Link to="/home"> Home </Link>
+      </div>
       <div className="detailCard">
         {game && (
           <>
-            <div className="backHome">
-              <Link to="/home">Volver al Home</Link>
-            </div>
-            <div className="containerDetailCard">
-              <div className="infoContainer">
+            <div className="infoContainer">
+              <div className="data">
                 <h2 className="estiloTexto">Nombre: {game.name}</h2>
                 <p className="estiloTexto">ID: {game.id}</p>
-                <p className="estiloTexto">Plataformas: {game.platforms}</p>
+                <p className="estiloTexto">
+                  Plataformas: {game.platforms + " ,"}
+                </p>
                 <p className="estiloTexto">
                   Fecha de Lanzamiento: {game.released}
                 </p>
-                <p className="estiloTexto">Ranking: {game.rating}</p>
-                <div className="genresContainer">
-                  <p className="estiloTexto">Géneros: </p>
+                <p className="estiloTexto">Ranking: ⭐{game.rating}</p>
+
+                <p className="estiloTexto">
+                  Géneros:
                   {game.genres &&
                     game.genres.map(genre => (
                       <p className="estiloTexto" key={genre.id}>
                         {genre}
                       </p>
-                    ))}
-                </div>
+                    ))}{" "}
+                </p>
+
                 <div className="imgContainer">
                   <img
                     className="imgDetail"
@@ -54,16 +58,17 @@ function Detail() {
                     alt=""
                   />
                 </div>
-                <div className="description">
-                  {game.description
-                    ? showFullDescription
-                      ? game.description
-                      : `${game.description.slice(0, 200)}...`
-                    : ""}
-                  <span className="verMas" onClick={handleToggleDescription}>
-                    {showFullDescription ? "Ver menos" : "Ver más"}
-                  </span>
-                </div>
+              </div>
+
+              <div className="description">
+                {game.description
+                  ? showFullDescription
+                    ? game.description
+                    : `${game.description.slice(0, 200)}...`
+                  : ""}
+                <span className="verMas" onClick={handleToggleDescription}>
+                  {showFullDescription ? "Ver menos" : "Ver más"}
+                </span>
               </div>
             </div>
           </>

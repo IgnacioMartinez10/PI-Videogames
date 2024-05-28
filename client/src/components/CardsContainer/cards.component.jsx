@@ -3,7 +3,6 @@ import Card from "../Card/card.component";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import Pagination from "../Pagination/Pagination.jsx";
-import Asidebar from "../AsideBar/Asidebar.jsx";
 
 function Cards() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,23 +27,25 @@ function Cards() {
   };
 
   return (
-    <div className="cardsContainer">
-      {currentGames?.map(game => (
-        <Card
-          // si quiero mostrar algo en la card principal tengo que agregarlo aca abajo
-          id={game.id}
-          name={game.name}
-          image={game.image}
-          genres={game.genres}
-          rating={game.rating}
-        />
-      ))}
+    <>
+      <div className="cardsContainer">
+        {currentGames?.map(game => (
+          <Card
+            // si quiero mostrar algo en la card principal tengo que agregarlo aca abajo
+            id={game.id}
+            name={game.name}
+            image={game.image}
+            genres={game.genres}
+            rating={game.rating}
+          />
+        ))}
+      </div>
       <Pagination
         gamesPerPage={gamesPerPage}
         totalGames={totalGames}
         paginated={paginate}
       />
-    </div>
+    </>
   );
 }
 

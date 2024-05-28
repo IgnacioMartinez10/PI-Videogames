@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
     margin: 0;
     padding: 0;
     font-family: "Roboto Mono", monospace;
@@ -12,6 +15,13 @@ body {
     text-align: center;
   }
   
+
+  .home{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
 
 .homeContainer{
   font-family: "Roboto Mono", monospace;

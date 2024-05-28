@@ -11,18 +11,18 @@ const Pagination = ({ gamesPerPage, totalGames, paginated }) => {
     <div className="paginationContainer">
       <ul>
         {pageNumbers.length
-          ? pageNumbers.map((number) => (
-              <button key={number} className="pageNumber">
-                <a
-                  onClick={(e) => {
-                    console.log(`click en pagina${number}`);
-                    e.preventDefault();
-                    paginated(number);
-                  }}
-                  href="#"
-                >
-                  {number}
-                </a>
+          ? pageNumbers.map(number => (
+              <button
+                key={number}
+                onClick={e => {
+                  console.log(`click en pagina${number}`);
+                  e.preventDefault();
+                  paginated(number);
+                }}
+                href="#"
+                className="pageNumber"
+              >
+                <a>{number}</a>
               </button>
             ))
           : undefined}

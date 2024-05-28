@@ -15,7 +15,7 @@ function Card(props) {
       >
         <div className="infoContainer">
           <h3 className="title"> {name} </h3>
-          <p className="rating"> {rating}</p>
+          <p className="rating">⭐{rating}</p>
         </div>
       </div>
     </Link>
