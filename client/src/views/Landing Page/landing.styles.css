@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  background-image: url('../../assets/joystick.jpg');
+  background-image: url('../../assets/fondo2.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -10,13 +10,14 @@
 .containerLanding {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 10px;
 }
 
 .containerInfo {
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +25,7 @@
   border-radius: 1rem; /* Usando rem en lugar de píxeles */
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(6px);
   border: 0.2rem solid black;
   
 }
@@ -47,15 +48,26 @@
   font-size: 3rem; /* Usando rem en lugar de píxeles */
   color: #E3E3E3;
   padding: 1rem; /* Usando rem en lugar de píxeles */
-  text-shadow: 0.2rem 0.2rem black; /* Usando rem en lugar de píxeles */
+  text-shadow: 0.1rem 0.1rem black; /* Usando rem en lugar de píxeles */
 }
 
 .estiloLinks {
-  width: 100%;
+  border: 3px solid black;
+  border-radius: 20px;
+  width: 40%;
   font-size: 1.6rem; /* Usando rem en lugar de píxeles */
   font-weight: bold;
   text-decoration: none;
   padding: 1rem; /* Usando rem en lugar de píxeles */
+  transition: all 1s;
+  box-shadow: 6px 6px 6px black;
+}
+
+.estiloLinks:hover{
+  transform: scale(1.05);
+  color: white;
+  border: 3px solid white;
+  box-shadow: 6px 6px 6px black
 }
 
 
@@ -70,27 +82,35 @@
   }
   .container {
     display: flex;
-    background-image: url('../../assets/joystick.jpg');
+    background-image: url('../../assets/fondo2.jpg');
     background-size: cover;
     background-repeat: repeat;
     height: 100vh;
+  }
+  .containerInfo{
+    width: 70%;
   }
 }
 
 /* Media query para pantallas de hasta 480px de ancho */
 @media screen and (max-width: 480px) {
   .landingTitle {
-    font-size: 2rem; /* Reducimos aún más el tamaño del título */
+    font-size: 1.2rem; /* Reducimos aún más el tamaño del título */
   }
   .estiloLinks {
+    width: 70%;
     font-size: 1.2rem; /* Reducimos aún más el tamaño del texto de los enlaces */
     padding: 0.5rem; /* Reducimos aún más el padding de los enlaces */
   }
     .container {
     display: flex;
-    background-image: url('../../assets/joystick.jpg');
+    background-image: url('../../assets/fondo2.jpg');
     background-size: cover;
     background-repeat: repeat;
+  }
+
+  .containerInfo{
+    width: 100%;
   }
   
 }
