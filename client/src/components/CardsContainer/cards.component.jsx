@@ -19,8 +19,6 @@ function Cards() {
   const indexOfLastGame = currentPage * gamesPerPage;
   const indexOfFirstGame = indexOfLastGame - gamesPerPage;
   const currentGames = videogames.slice(indexOfFirstGame, indexOfLastGame);
-  const jose = currentGames;
-  console.log(jose);
 
   const paginate = pageNumber => {
     setCurrentPage(pageNumber);
