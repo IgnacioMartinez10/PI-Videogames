@@ -24,7 +24,10 @@ function Detail() {
     <div className="containerDetail">
       <Head />
       <div className="backHome">
-        <Link to="/home"> Home </Link>
+        <Link to="/home" className="back">
+          {" "}
+          Volver al home{" "}
+        </Link>
       </div>
       <div className="detailCard">
         {game && (

@@ -145,7 +145,7 @@ function Navbar() {
         {/* Botón para resetear los filtros */}
         <div className="buttonResetContainer">
           <button className="buttonReset" onClick={reseteo}>
-            Reset Filters
+            Resetear Filtros
           </button>
         </div>
 

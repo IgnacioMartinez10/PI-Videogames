@@ -12,7 +12,10 @@ export default function Head() {
       </div>
       <a href=""></a>
       <div>
-        <a href="https://github.com/IgnacioMartinez10" target="_bank">
+        <a
+          href="https://github.com/IgnacioMartinez10/PI-Videogames"
+          target="_bank"
+        >
           <img className="githubIcon" src={GithubIcon} alt="github" />
         </a>
       </div>
